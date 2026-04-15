@@ -21,20 +21,27 @@ FootyScores is a Next.js + TypeScript tool for QA engineers to generate determin
 
 ## Getting Started
 
-1. Install Node.js 20+.
-2. Install dependencies:
+1. Use Node.js 22.x (LTS).
+2. If you use nvm, run:
+
+```bash
+nvm install
+nvm use
+```
+
+3. Install dependencies:
 
 ```bash
 npm install
 ```
 
-3. Run development server:
+4. Run development server:
 
 ```bash
 npm run dev
 ```
 
-4. Open `http://localhost:3000`.
+5. Open `http://localhost:3000`.
 
 ## Scripts
 
@@ -42,6 +49,12 @@ npm run dev
 - `npm run build` - create production build
 - `npm run lint` - run Next.js lint rules
 - `npm run test` - run Jest tests
+
+## Runtime Notes
+
+- This repository pins Node to `22.x` in `package.json` and `.nvmrc`.
+- Vercel reads the Node version from `package.json` `engines.node`.
+- npm scripts include a `NODE_OPTIONS` localStorage safeguard so the app can still run locally on environments using newer Node versions.
 
 ## Data Retrieval Strategy
 
