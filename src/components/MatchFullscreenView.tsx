@@ -4,10 +4,17 @@ import type { GeneratedMatchRecord } from "@/lib/types/domain";
 
 interface MatchFullscreenViewProps {
   record: GeneratedMatchRecord;
+  onOpenSingleApi: (matchCode: string) => void;
+  onExportSingle: (record: GeneratedMatchRecord) => void;
   onClose: () => void;
 }
 
-export function MatchFullscreenView({ record, onClose }: MatchFullscreenViewProps) {
+export function MatchFullscreenView({
+  record,
+  onOpenSingleApi,
+  onExportSingle,
+  onClose,
+}: MatchFullscreenViewProps) {
   const titleId = `match-fullscreen-${record.source.matchCode}`;
 
   const handlePanelClick = (event: MouseEvent<HTMLElement>): void => {
@@ -32,9 +39,25 @@ export function MatchFullscreenView({ record, onClose }: MatchFullscreenViewProp
               {record.endpoint.kickoff} | {record.endpoint.competition.round}
             </p>
           </div>
-          <button className="control-button secondary" onClick={onClose} type="button">
-            Close Fullscreen
-          </button>
+          <div className="fullscreen-actions">
+            <button
+              className="control-button secondary"
+              onClick={() => onOpenSingleApi(record.source.matchCode)}
+              type="button"
+            >
+              Open Single Match API
+            </button>
+            <button
+              className="control-button secondary"
+              onClick={() => onExportSingle(record)}
+              type="button"
+            >
+              Export This Match
+            </button>
+            <button className="control-button secondary" onClick={onClose} type="button">
+              Close Fullscreen
+            </button>
+          </div>
         </header>
 
         <div className="fullscreen-columns">

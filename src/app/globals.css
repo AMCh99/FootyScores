@@ -260,6 +260,13 @@ a {
   font-size: 0.9rem;
 }
 
+.fullscreen-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
 .fullscreen-columns {
   margin-top: 1rem;
   display: grid;
@@ -313,6 +320,10 @@ a {
 
   .fullscreen-header {
     flex-direction: column;
+  }
+
+  .fullscreen-actions {
+    justify-content: flex-start;
   }
 
   .fullscreen-columns {

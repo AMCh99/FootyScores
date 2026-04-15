@@ -28,8 +28,8 @@ function getErrorMessage(payload: ApiErrorResponse | null): string {
   return `${title}: ${detail}`;
 }
 
-function downloadJson(fileName: string, endpoints: MatchEndpoint[]): void {
-  const blob = new Blob([exportEndpointsToJson(endpoints)], {
+function downloadText(fileName: string, content: string): void {
+  const blob = new Blob([content], {
     type: "application/json",
   });
   const url = URL.createObjectURL(blob);
@@ -41,6 +41,14 @@ function downloadJson(fileName: string, endpoints: MatchEndpoint[]): void {
   anchor.click();
   anchor.remove();
   URL.revokeObjectURL(url);
+}
+
+function downloadAllEndpoints(fileName: string, endpoints: MatchEndpoint[]): void {
+  downloadText(fileName, exportEndpointsToJson(endpoints));
+}
+
+function downloadSingleEndpoint(fileName: string, endpoint: MatchEndpoint): void {
+  downloadText(fileName, JSON.stringify(endpoint, null, 2));
 }
 
 export default function HomePage() {
@@ -110,11 +118,20 @@ export default function HomePage() {
       return;
     }
 
-    downloadJson("olympic-football-endpoints.json", endpoints);
+    downloadAllEndpoints("olympic-football-endpoints.json", endpoints);
   };
 
   const handleOpenApi = (): void => {
     window.open("/api/generate", "_blank", "noopener,noreferrer");
+  };
+
+  const handleOpenSingleMatchApi = (matchCode: string): void => {
+    const encodedMatchCode = encodeURIComponent(matchCode);
+    window.open(`/api/generate?matchCode=${encodedMatchCode}`, "_blank", "noopener,noreferrer");
+  };
+
+  const handleExportSingleMatch = (record: GeneratedMatchRecord): void => {
+    downloadSingleEndpoint(`olympic-football-endpoint-${record.source.matchCode}.json`, record.endpoint);
   };
 
   return (
@@ -191,7 +208,14 @@ export default function HomePage() {
         </>
       )}
 
-      {selectedRecord && <MatchFullscreenView record={selectedRecord} onClose={() => setSelectedRecord(null)} />}
+      {selectedRecord && (
+        <MatchFullscreenView
+          record={selectedRecord}
+          onOpenSingleApi={handleOpenSingleMatchApi}
+          onExportSingle={handleExportSingleMatch}
+          onClose={() => setSelectedRecord(null)}
+        />
+      )}
     </main>
   );
 }

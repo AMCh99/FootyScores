@@ -9,6 +9,7 @@ FootyScores is a Next.js + TypeScript tool for QA engineers to generate determin
 - Transforms each match into the exact endpoint schema from `task/example.json`.
 - Provides a UI to trigger generation and inspect match source + generated endpoint JSON.
 - Exports generated endpoints as machine-readable JSON.
+- Supports single-match endpoint retrieval and single-match JSON export from fullscreen match view.
 - Uses the official Olympics source as the runtime data input.
 
 ## Tech Stack
@@ -71,6 +72,11 @@ Implemented endpoint families:
 - `RES_ByRSC_H2H~comp=OG2024~disc=FBL~rscResult=<matchCode>~lang=ENG.json`
 
 The `api_examples` directory is retained only as optional reference material when defining interfaces and parser contracts. Runtime generation does not read from `api_examples`.
+
+API usage:
+
+- All football matches: `/api/generate`
+- Single football match by code: `/api/generate?matchCode=<matchCode>`
 
 ## Architecture
 
