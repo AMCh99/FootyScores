@@ -1,0 +1,29 @@
+{
+  "name": "footyscores",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_OPTIONS=\"--localstorage-file=.next/localstorage\" next dev",
+    "build": "NODE_OPTIONS=\"--localstorage-file=.next/localstorage\" next build",
+    "start": "NODE_OPTIONS=\"--localstorage-file=.next/localstorage\" next start",
+    "lint": "next lint",
+    "test": "jest"
+  },
+  "dependencies": {
+    "next": "15.3.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "22.13.10",
+    "@types/react": "19.0.12",
+    "@types/react-dom": "19.0.4",
+    "eslint": "9.22.0",
+    "eslint-config-next": "15.3.1",
+    "jest": "29.7.0",
+    "jest-environment-jsdom": "29.7.0",
+    "ts-jest": "29.2.6",
+    "typescript": "5.8.2"
+  }
+}
