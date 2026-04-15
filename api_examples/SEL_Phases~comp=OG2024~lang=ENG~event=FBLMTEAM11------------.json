@@ -1,0 +1,910 @@
+{
+    "event": {
+        "code": "FBLMTEAM11------------",
+        "gender": {
+            "code": "FBLM"
+        },
+        "isTeam": true,
+        "description": "Men",
+        "longDescription": "Men",
+        "phases": [
+            {
+                "code": "FBLMTEAM11----------------",
+                "type": "8",
+                "description": "Men",
+                "longDescription": "Men",
+                "shortDescription": "Men"
+            },
+            {
+                "code": "FBLMTEAM11------------FNL-",
+                "type": "3",
+                "order": "1",
+                "description": "Men's Finals",
+                "longDescription": "Men's Finals",
+                "shortDescription": "Finals",
+                "units": [
+                    {
+                        "code": "FBLMTEAM11------------FNL-000100--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Gold Medal Match",
+                        "shortDescription": "Gold Medal Match",
+                        "longDescription": "Men's Gold Medal Match",
+                        "schedule": {
+                            "startDate": "2024-08-09T18:00:00+02:00",
+                            "endDate": "2024-08-09T19:45:00+02:00",
+                            "medal": 1,
+                            "unitNum": "32",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------FNL-000200--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Bronze Medal Match",
+                        "shortDescription": "Bronze Medal Match",
+                        "longDescription": "Men's Bronze Medal Match",
+                        "schedule": {
+                            "startDate": "2024-08-08T17:00:00+02:00",
+                            "endDate": "2024-08-08T18:45:00+02:00",
+                            "medal": 3,
+                            "unitNum": "31",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "code": "FBLMTEAM11------------GP--",
+                "type": "3",
+                "order": "8",
+                "description": "Men's Group Stage",
+                "longDescription": "Men's Group Stage",
+                "shortDescription": "Group Stage"
+            },
+            {
+                "code": "FBLMTEAM11------------GPA-",
+                "type": "3",
+                "order": "8",
+                "description": "Men's Group A",
+                "longDescription": "Men's Group A",
+                "shortDescription": "Group A",
+                "units": [
+                    {
+                        "code": "FBLMTEAM11------------GPA-000100--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group A",
+                        "shortDescription": "Group A",
+                        "longDescription": "Men's Group A",
+                        "schedule": {
+                            "startDate": "2024-07-24T21:00:00+02:00",
+                            "endDate": "2024-07-24T22:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "1",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------GPA-000200--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group A",
+                        "shortDescription": "Group A",
+                        "longDescription": "Men's Group A",
+                        "schedule": {
+                            "startDate": "2024-07-24T17:00:00+02:00",
+                            "endDate": "2024-07-24T18:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "2",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------GPA-000300--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group A",
+                        "shortDescription": "Group A",
+                        "longDescription": "Men's Group A",
+                        "schedule": {
+                            "startDate": "2024-07-27T21:00:00+02:00",
+                            "endDate": "2024-07-27T22:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "9",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------GPA-000400--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group A",
+                        "shortDescription": "Group A",
+                        "longDescription": "Men's Group A",
+                        "schedule": {
+                            "startDate": "2024-07-27T19:00:00+02:00",
+                            "endDate": "2024-07-27T20:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "10",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------GPA-000500--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group A",
+                        "shortDescription": "Group A",
+                        "longDescription": "Men's Group A",
+                        "schedule": {
+                            "startDate": "2024-07-30T19:00:00+02:00",
+                            "endDate": "2024-07-30T20:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "17",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------GPA-000600--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group A",
+                        "shortDescription": "Group A",
+                        "longDescription": "Men's Group A",
+                        "schedule": {
+                            "startDate": "2024-07-30T19:00:00+02:00",
+                            "endDate": "2024-07-30T20:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "18",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "code": "FBLMTEAM11------------GPB-",
+                "type": "3",
+                "order": "8",
+                "description": "Men's Group B",
+                "longDescription": "Men's Group B",
+                "shortDescription": "Group B",
+                "units": [
+                    {
+                        "code": "FBLMTEAM11------------GPB-000100--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group B",
+                        "shortDescription": "Group B",
+                        "longDescription": "Men's Group B",
+                        "schedule": {
+                            "startDate": "2024-07-24T15:00:00+02:00",
+                            "endDate": "2024-07-24T16:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "3",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------GPB-000200--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group B",
+                        "shortDescription": "Group B",
+                        "longDescription": "Men's Group B",
+                        "schedule": {
+                            "startDate": "2024-07-24T19:00:00+02:00",
+                            "endDate": "2024-07-24T20:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "4",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------GPB-000300--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group B",
+                        "shortDescription": "Group B",
+                        "longDescription": "Men's Group B",
+                        "schedule": {
+                            "startDate": "2024-07-27T15:00:00+02:00",
+                            "endDate": "2024-07-27T16:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "11",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------GPB-000400--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group B",
+                        "shortDescription": "Group B",
+                        "longDescription": "Men's Group B",
+                        "schedule": {
+                            "startDate": "2024-07-27T17:00:00+02:00",
+                            "endDate": "2024-07-27T18:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "12",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------GPB-000500--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group B",
+                        "shortDescription": "Group B",
+                        "longDescription": "Men's Group B",
+                        "schedule": {
+                            "startDate": "2024-07-30T17:00:00+02:00",
+                            "endDate": "2024-07-30T18:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "19",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------GPB-000600--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group B",
+                        "shortDescription": "Group B",
+                        "longDescription": "Men's Group B",
+                        "schedule": {
+                            "startDate": "2024-07-30T17:00:00+02:00",
+                            "endDate": "2024-07-30T18:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "20",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "code": "FBLMTEAM11------------GPC-",
+                "type": "3",
+                "order": "8",
+                "description": "Men's Group C",
+                "longDescription": "Men's Group C",
+                "shortDescription": "Group C",
+                "units": [
+                    {
+                        "code": "FBLMTEAM11------------GPC-000100--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group C",
+                        "shortDescription": "Group C",
+                        "longDescription": "Men's Group C",
+                        "schedule": {
+                            "startDate": "2024-07-24T15:00:00+02:00",
+                            "endDate": "2024-07-24T16:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "5",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------GPC-000200--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group C",
+                        "shortDescription": "Group C",
+                        "longDescription": "Men's Group C",
+                        "schedule": {
+                            "startDate": "2024-07-24T17:00:00+02:00",
+                            "endDate": "2024-07-24T18:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "6",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------GPC-000300--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group C",
+                        "shortDescription": "Group C",
+                        "longDescription": "Men's Group C",
+                        "schedule": {
+                            "startDate": "2024-07-27T17:00:00+02:00",
+                            "endDate": "2024-07-27T18:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "13",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------GPC-000400--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group C",
+                        "shortDescription": "Group C",
+                        "longDescription": "Men's Group C",
+                        "schedule": {
+                            "startDate": "2024-07-27T15:00:00+02:00",
+                            "endDate": "2024-07-27T16:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "14",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------GPC-000500--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group C",
+                        "shortDescription": "Group C",
+                        "longDescription": "Men's Group C",
+                        "schedule": {
+                            "startDate": "2024-07-30T15:00:00+02:00",
+                            "endDate": "2024-07-30T16:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "21",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------GPC-000600--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group C",
+                        "shortDescription": "Group C",
+                        "longDescription": "Men's Group C",
+                        "schedule": {
+                            "startDate": "2024-07-30T15:00:00+02:00",
+                            "endDate": "2024-07-30T16:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "22",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "code": "FBLMTEAM11------------GPD-",
+                "type": "3",
+                "order": "8",
+                "description": "Men's Group D",
+                "longDescription": "Men's Group D",
+                "shortDescription": "Group D",
+                "units": [
+                    {
+                        "code": "FBLMTEAM11------------GPD-000100--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group D",
+                        "shortDescription": "Group D",
+                        "longDescription": "Men's Group D",
+                        "schedule": {
+                            "startDate": "2024-07-24T21:00:00+02:00",
+                            "endDate": "2024-07-24T22:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "7",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------GPD-000200--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group D",
+                        "shortDescription": "Group D",
+                        "longDescription": "Men's Group D",
+                        "schedule": {
+                            "startDate": "2024-07-24T19:00:00+02:00",
+                            "endDate": "2024-07-24T20:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "8",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------GPD-000300--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group D",
+                        "shortDescription": "Group D",
+                        "longDescription": "Men's Group D",
+                        "schedule": {
+                            "startDate": "2024-07-27T19:00:00+02:00",
+                            "endDate": "2024-07-27T20:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "15",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------GPD-000400--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group D",
+                        "shortDescription": "Group D",
+                        "longDescription": "Men's Group D",
+                        "schedule": {
+                            "startDate": "2024-07-27T21:00:00+02:00",
+                            "endDate": "2024-07-27T22:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "16",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------GPD-000500--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group D",
+                        "shortDescription": "Group D",
+                        "longDescription": "Men's Group D",
+                        "schedule": {
+                            "startDate": "2024-07-30T21:00:00+02:00",
+                            "endDate": "2024-07-30T22:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "23",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------GPD-000600--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Group D",
+                        "shortDescription": "Group D",
+                        "longDescription": "Men's Group D",
+                        "schedule": {
+                            "startDate": "2024-07-30T21:00:00+02:00",
+                            "endDate": "2024-07-30T22:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "24",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "code": "FBLMTEAM11------------QFNL",
+                "type": "3",
+                "order": "3",
+                "description": "Men's Quarter-finals",
+                "longDescription": "Men's Quarter-finals",
+                "shortDescription": "Quarter-finals",
+                "units": [
+                    {
+                        "code": "FBLMTEAM11------------QFNL000100--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Quarter-final",
+                        "shortDescription": "Quarter-final",
+                        "longDescription": "Men's Quarter-final",
+                        "schedule": {
+                            "startDate": "2024-08-02T21:00:00+02:00",
+                            "endDate": "2024-08-02T22:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "25",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------QFNL000200--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Quarter-final",
+                        "shortDescription": "Quarter-final",
+                        "longDescription": "Men's Quarter-final",
+                        "schedule": {
+                            "startDate": "2024-08-02T19:00:00+02:00",
+                            "endDate": "2024-08-02T20:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "27",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------QFNL000300--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Quarter-final",
+                        "shortDescription": "Quarter-final",
+                        "longDescription": "Men's Quarter-final",
+                        "schedule": {
+                            "startDate": "2024-08-02T15:00:00+02:00",
+                            "endDate": "2024-08-02T16:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "26",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------QFNL000400--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Quarter-final",
+                        "shortDescription": "Quarter-final",
+                        "longDescription": "Men's Quarter-final",
+                        "schedule": {
+                            "startDate": "2024-08-02T17:00:00+02:00",
+                            "endDate": "2024-08-02T18:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "28",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "code": "FBLMTEAM11------------SFNL",
+                "type": "3",
+                "order": "2",
+                "description": "Men's Semi-finals",
+                "longDescription": "Men's Semi-finals",
+                "shortDescription": "Semi-finals",
+                "units": [
+                    {
+                        "code": "FBLMTEAM11------------SFNL000100--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Semi-final",
+                        "shortDescription": "Semi-final",
+                        "longDescription": "Men's Semi-final",
+                        "schedule": {
+                            "startDate": "2024-08-05T21:00:00+02:00",
+                            "endDate": "2024-08-05T22:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "29",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------SFNL000200--",
+                        "type": "HTEAM",
+                        "scheduled": "Y",
+                        "order": "15",
+                        "description": "Men's Semi-final",
+                        "shortDescription": "Semi-final",
+                        "longDescription": "Men's Semi-final",
+                        "schedule": {
+                            "startDate": "2024-08-05T18:00:00+02:00",
+                            "endDate": "2024-08-05T19:45:00+02:00",
+                            "medal": 0,
+                            "unitNum": "30",
+                            "status": {
+                                "code": "FINISHED",
+                                "description": "Finished"
+                            },
+                            "result": {
+                                "status": {
+                                    "code": "OFFICIAL"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "code": "FBLMTEAM11------------VICT",
+                "type": "6",
+                "order": "V",
+                "description": "Men's Victory Ceremony",
+                "longDescription": "Men's Victory Ceremony",
+                "shortDescription": "Victory Ceremony",
+                "units": [
+                    {
+                        "code": "FBLMTEAM11------------VICTBRONZE--",
+                        "type": "NONE",
+                        "scheduled": "Y",
+                        "order": "17",
+                        "description": "Men's Bronze Ceremony",
+                        "shortDescription": "Bronze Ceremony",
+                        "longDescription": "Men's Bronze Ceremony",
+                        "schedule": {
+                            "medal": 0,
+                            "status": {
+                                "code": "UNSCHEDULED",
+                                "description": "Unscheduled"
+                            }
+                        }
+                    },
+                    {
+                        "code": "FBLMTEAM11------------VICTMEDAL---",
+                        "type": "NONE",
+                        "scheduled": "Y",
+                        "order": "17",
+                        "description": "Men's Victory Ceremony",
+                        "shortDescription": "Victory Ceremony",
+                        "longDescription": "Men's Victory Ceremony",
+                        "schedule": {
+                            "startDate": "2024-08-09T20:06:00+02:00",
+                            "endDate": "2024-08-09T20:21:00+02:00",
+                            "medal": 0,
+                            "status": {
+                                "code": "RESCHEDULED",
+                                "description": "Rescheduled"
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

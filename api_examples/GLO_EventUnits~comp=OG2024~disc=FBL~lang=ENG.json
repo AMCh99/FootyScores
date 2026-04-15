@@ -1,0 +1,1120 @@
+{
+    "eventUnits": [
+        {
+            "code": "FBL-------------------------------",
+            "description": "Football",
+            "shortDescription": "Football",
+            "longDescription": "Football",
+            "seodescription": "------------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "8"
+            }
+        },
+        {
+            "code": "FBL-----------------------BOR-----",
+            "description": "BOR",
+            "shortDescription": "BOR",
+            "longDescription": "BOR",
+            "seodescription": "----bor-----",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "8"
+            }
+        },
+        {
+            "code": "FBL-----------------------LYO-----",
+            "description": "LYO",
+            "shortDescription": "LYO",
+            "longDescription": "LYO",
+            "seodescription": "----lyo-----",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "8"
+            }
+        },
+        {
+            "code": "FBL-----------------------MRS-----",
+            "description": "MRS",
+            "shortDescription": "MRS",
+            "longDescription": "MRS",
+            "seodescription": "----mrs-----",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "8"
+            }
+        },
+        {
+            "code": "FBL-----------------------NAN-----",
+            "description": "NAN",
+            "shortDescription": "NAN",
+            "longDescription": "NAN",
+            "seodescription": "----nan-----",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "8"
+            }
+        },
+        {
+            "code": "FBL-----------------------NIC-----",
+            "description": "NIC",
+            "shortDescription": "NIC",
+            "longDescription": "NIC",
+            "seodescription": "----nic-----",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "8"
+            }
+        },
+        {
+            "code": "FBL-----------------------PDP-----",
+            "description": "PDP",
+            "shortDescription": "PDP",
+            "longDescription": "PDP",
+            "seodescription": "----pdp-----",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "8"
+            }
+        },
+        {
+            "code": "FBL-----------------------STE-----",
+            "description": "STE",
+            "shortDescription": "STE",
+            "longDescription": "STE",
+            "seodescription": "----ste-----",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "8"
+            }
+        },
+        {
+            "code": "FBL-----------------------STR-----",
+            "description": "STR",
+            "shortDescription": "STR",
+            "longDescription": "STR",
+            "seodescription": "----str-----",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "8"
+            }
+        },
+        {
+            "code": "FBL-----------------------TOU-----",
+            "description": "TOU",
+            "shortDescription": "TOU",
+            "longDescription": "TOU",
+            "seodescription": "----tou-----",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "8"
+            }
+        },
+        {
+            "code": "FBLM------------------------------",
+            "description": "Men",
+            "shortDescription": "Men",
+            "longDescription": "Men",
+            "seodescription": "------------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "8"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------------------",
+            "description": "Men",
+            "shortDescription": "Men",
+            "longDescription": "Men",
+            "seodescription": "------------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "8"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------FNL---------",
+            "description": "Men's Finals",
+            "shortDescription": "Finals",
+            "longDescription": "Men's Finals",
+            "seodescription": "fnl---------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------FNL-000100--",
+            "description": "Men's Gold Medal Match",
+            "shortDescription": "Gold Medal Match",
+            "longDescription": "Men's Gold Medal Match",
+            "seodescription": "fnl-000100--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------FNL-000200--",
+            "description": "Men's Bronze Medal Match",
+            "shortDescription": "Bronze Medal Match",
+            "longDescription": "Men's Bronze Medal Match",
+            "seodescription": "fnl-000200--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GP----------",
+            "description": "Men's Group Stage",
+            "shortDescription": "Group Stage",
+            "longDescription": "Men's Group Stage",
+            "seodescription": "gp----------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPA---------",
+            "description": "Men's Group A",
+            "shortDescription": "Group A",
+            "longDescription": "Men's Group A",
+            "seodescription": "gpa---------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPA-000100--",
+            "description": "Men's Group A",
+            "shortDescription": "Group A",
+            "longDescription": "Men's Group A",
+            "seodescription": "gpa-000100--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPA-000200--",
+            "description": "Men's Group A",
+            "shortDescription": "Group A",
+            "longDescription": "Men's Group A",
+            "seodescription": "gpa-000200--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPA-000300--",
+            "description": "Men's Group A",
+            "shortDescription": "Group A",
+            "longDescription": "Men's Group A",
+            "seodescription": "gpa-000300--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPA-000400--",
+            "description": "Men's Group A",
+            "shortDescription": "Group A",
+            "longDescription": "Men's Group A",
+            "seodescription": "gpa-000400--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPA-000500--",
+            "description": "Men's Group A",
+            "shortDescription": "Group A",
+            "longDescription": "Men's Group A",
+            "seodescription": "gpa-000500--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPA-000600--",
+            "description": "Men's Group A",
+            "shortDescription": "Group A",
+            "longDescription": "Men's Group A",
+            "seodescription": "gpa-000600--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPB---------",
+            "description": "Men's Group B",
+            "shortDescription": "Group B",
+            "longDescription": "Men's Group B",
+            "seodescription": "gpb---------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPB-000100--",
+            "description": "Men's Group B",
+            "shortDescription": "Group B",
+            "longDescription": "Men's Group B",
+            "seodescription": "gpb-000100--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPB-000200--",
+            "description": "Men's Group B",
+            "shortDescription": "Group B",
+            "longDescription": "Men's Group B",
+            "seodescription": "gpb-000200--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPB-000300--",
+            "description": "Men's Group B",
+            "shortDescription": "Group B",
+            "longDescription": "Men's Group B",
+            "seodescription": "gpb-000300--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPB-000400--",
+            "description": "Men's Group B",
+            "shortDescription": "Group B",
+            "longDescription": "Men's Group B",
+            "seodescription": "gpb-000400--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPB-000500--",
+            "description": "Men's Group B",
+            "shortDescription": "Group B",
+            "longDescription": "Men's Group B",
+            "seodescription": "gpb-000500--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPB-000600--",
+            "description": "Men's Group B",
+            "shortDescription": "Group B",
+            "longDescription": "Men's Group B",
+            "seodescription": "gpb-000600--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPC---------",
+            "description": "Men's Group C",
+            "shortDescription": "Group C",
+            "longDescription": "Men's Group C",
+            "seodescription": "gpc---------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPC-000100--",
+            "description": "Men's Group C",
+            "shortDescription": "Group C",
+            "longDescription": "Men's Group C",
+            "seodescription": "gpc-000100--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPC-000200--",
+            "description": "Men's Group C",
+            "shortDescription": "Group C",
+            "longDescription": "Men's Group C",
+            "seodescription": "gpc-000200--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPC-000300--",
+            "description": "Men's Group C",
+            "shortDescription": "Group C",
+            "longDescription": "Men's Group C",
+            "seodescription": "gpc-000300--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPC-000400--",
+            "description": "Men's Group C",
+            "shortDescription": "Group C",
+            "longDescription": "Men's Group C",
+            "seodescription": "gpc-000400--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPC-000500--",
+            "description": "Men's Group C",
+            "shortDescription": "Group C",
+            "longDescription": "Men's Group C",
+            "seodescription": "gpc-000500--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPC-000600--",
+            "description": "Men's Group C",
+            "shortDescription": "Group C",
+            "longDescription": "Men's Group C",
+            "seodescription": "gpc-000600--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPD---------",
+            "description": "Men's Group D",
+            "shortDescription": "Group D",
+            "longDescription": "Men's Group D",
+            "seodescription": "gpd---------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPD-000100--",
+            "description": "Men's Group D",
+            "shortDescription": "Group D",
+            "longDescription": "Men's Group D",
+            "seodescription": "gpd-000100--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPD-000200--",
+            "description": "Men's Group D",
+            "shortDescription": "Group D",
+            "longDescription": "Men's Group D",
+            "seodescription": "gpd-000200--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPD-000300--",
+            "description": "Men's Group D",
+            "shortDescription": "Group D",
+            "longDescription": "Men's Group D",
+            "seodescription": "gpd-000300--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPD-000400--",
+            "description": "Men's Group D",
+            "shortDescription": "Group D",
+            "longDescription": "Men's Group D",
+            "seodescription": "gpd-000400--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPD-000500--",
+            "description": "Men's Group D",
+            "shortDescription": "Group D",
+            "longDescription": "Men's Group D",
+            "seodescription": "gpd-000500--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------GPD-000600--",
+            "description": "Men's Group D",
+            "shortDescription": "Group D",
+            "longDescription": "Men's Group D",
+            "seodescription": "gpd-000600--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------QFNL--------",
+            "description": "Men's Quarter-finals",
+            "shortDescription": "Quarter-finals",
+            "longDescription": "Men's Quarter-finals",
+            "seodescription": "qfnl--------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------QFNL000100--",
+            "description": "Men's Quarter-final",
+            "shortDescription": "Quarter-final",
+            "longDescription": "Men's Quarter-final",
+            "seodescription": "qfnl000100--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------QFNL000200--",
+            "description": "Men's Quarter-final",
+            "shortDescription": "Quarter-final",
+            "longDescription": "Men's Quarter-final",
+            "seodescription": "qfnl000200--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------QFNL000300--",
+            "description": "Men's Quarter-final",
+            "shortDescription": "Quarter-final",
+            "longDescription": "Men's Quarter-final",
+            "seodescription": "qfnl000300--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------QFNL000400--",
+            "description": "Men's Quarter-final",
+            "shortDescription": "Quarter-final",
+            "longDescription": "Men's Quarter-final",
+            "seodescription": "qfnl000400--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------SFNL--------",
+            "description": "Men's Semi-finals",
+            "shortDescription": "Semi-finals",
+            "longDescription": "Men's Semi-finals",
+            "seodescription": "sfnl--------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------SFNL000100--",
+            "description": "Men's Semi-final",
+            "shortDescription": "Semi-final",
+            "longDescription": "Men's Semi-final",
+            "seodescription": "sfnl000100--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------SFNL000200--",
+            "description": "Men's Semi-final",
+            "shortDescription": "Semi-final",
+            "longDescription": "Men's Semi-final",
+            "seodescription": "sfnl000200--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------VICT--------",
+            "description": "Men's Victory Ceremony",
+            "shortDescription": "Victory Ceremony",
+            "longDescription": "Men's Victory Ceremony",
+            "seodescription": "vict--------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "6"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------VICTBRONZE--",
+            "description": "Men's Bronze Ceremony",
+            "shortDescription": "Bronze Ceremony",
+            "longDescription": "Men's Bronze Ceremony",
+            "seodescription": "victbronze--",
+            "type": "NONE",
+            "scheduled": "Y",
+            "phase": {
+                "type": "6"
+            }
+        },
+        {
+            "code": "FBLMTEAM11------------VICTMEDAL---",
+            "description": "Men's Victory Ceremony",
+            "shortDescription": "Victory Ceremony",
+            "longDescription": "Men's Victory Ceremony",
+            "seodescription": "victmedal---",
+            "type": "NONE",
+            "scheduled": "Y",
+            "phase": {
+                "type": "6"
+            }
+        },
+        {
+            "code": "FBLW------------------------------",
+            "description": "Women",
+            "shortDescription": "Women",
+            "longDescription": "Women",
+            "seodescription": "------------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "8"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------------------",
+            "description": "Women",
+            "shortDescription": "Women",
+            "longDescription": "Women",
+            "seodescription": "------------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "8"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------FNL---------",
+            "description": "Women's Finals",
+            "shortDescription": "Finals",
+            "longDescription": "Women's Finals",
+            "seodescription": "fnl---------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------FNL-000100--",
+            "description": "Women's Gold Medal Match",
+            "shortDescription": "Gold Medal Match",
+            "longDescription": "Women's Gold Medal Match",
+            "seodescription": "fnl-000100--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------FNL-000200--",
+            "description": "Women's Bronze Medal Match",
+            "shortDescription": "Bronze Medal Match",
+            "longDescription": "Women's Bronze Medal Match",
+            "seodescription": "fnl-000200--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GP----------",
+            "description": "Women's Group Stage",
+            "shortDescription": "Group Stage",
+            "longDescription": "Women's Group Stage",
+            "seodescription": "gp----------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPA---------",
+            "description": "Women's Group A",
+            "shortDescription": "Group A",
+            "longDescription": "Women's Group A",
+            "seodescription": "gpa---------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPA-000100--",
+            "description": "Women's Group A",
+            "shortDescription": "Group A",
+            "longDescription": "Women's Group A",
+            "seodescription": "gpa-000100--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPA-000200--",
+            "description": "Women's Group A",
+            "shortDescription": "Group A",
+            "longDescription": "Women's Group A",
+            "seodescription": "gpa-000200--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPA-000300--",
+            "description": "Women's Group A",
+            "shortDescription": "Group A",
+            "longDescription": "Women's Group A",
+            "seodescription": "gpa-000300--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPA-000400--",
+            "description": "Women's Group A",
+            "shortDescription": "Group A",
+            "longDescription": "Women's Group A",
+            "seodescription": "gpa-000400--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPA-000500--",
+            "description": "Women's Group A",
+            "shortDescription": "Group A",
+            "longDescription": "Women's Group A",
+            "seodescription": "gpa-000500--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPA-000600--",
+            "description": "Women's Group A",
+            "shortDescription": "Group A",
+            "longDescription": "Women's Group A",
+            "seodescription": "gpa-000600--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPB---------",
+            "description": "Women's Group B",
+            "shortDescription": "Group B",
+            "longDescription": "Women's Group B",
+            "seodescription": "gpb---------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPB-000100--",
+            "description": "Women's Group B",
+            "shortDescription": "Group B",
+            "longDescription": "Women's Group B",
+            "seodescription": "gpb-000100--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPB-000200--",
+            "description": "Women's Group B",
+            "shortDescription": "Group B",
+            "longDescription": "Women's Group B",
+            "seodescription": "gpb-000200--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPB-000300--",
+            "description": "Women's Group B",
+            "shortDescription": "Group B",
+            "longDescription": "Women's Group B",
+            "seodescription": "gpb-000300--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPB-000400--",
+            "description": "Women's Group B",
+            "shortDescription": "Group B",
+            "longDescription": "Women's Group B",
+            "seodescription": "gpb-000400--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPB-000500--",
+            "description": "Women's Group B",
+            "shortDescription": "Group B",
+            "longDescription": "Women's Group B",
+            "seodescription": "gpb-000500--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPB-000600--",
+            "description": "Women's Group B",
+            "shortDescription": "Group B",
+            "longDescription": "Women's Group B",
+            "seodescription": "gpb-000600--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPC---------",
+            "description": "Women's Group C",
+            "shortDescription": "Group C",
+            "longDescription": "Women's Group C",
+            "seodescription": "gpc---------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPC-000100--",
+            "description": "Women's Group C",
+            "shortDescription": "Group C",
+            "longDescription": "Women's Group C",
+            "seodescription": "gpc-000100--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPC-000200--",
+            "description": "Women's Group C",
+            "shortDescription": "Group C",
+            "longDescription": "Women's Group C",
+            "seodescription": "gpc-000200--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPC-000300--",
+            "description": "Women's Group C",
+            "shortDescription": "Group C",
+            "longDescription": "Women's Group C",
+            "seodescription": "gpc-000300--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPC-000400--",
+            "description": "Women's Group C",
+            "shortDescription": "Group C",
+            "longDescription": "Women's Group C",
+            "seodescription": "gpc-000400--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPC-000500--",
+            "description": "Women's Group C",
+            "shortDescription": "Group C",
+            "longDescription": "Women's Group C",
+            "seodescription": "gpc-000500--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------GPC-000600--",
+            "description": "Women's Group C",
+            "shortDescription": "Group C",
+            "longDescription": "Women's Group C",
+            "seodescription": "gpc-000600--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------QFNL--------",
+            "description": "Women's Quarter-finals",
+            "shortDescription": "Quarter-finals",
+            "longDescription": "Women's Quarter-finals",
+            "seodescription": "qfnl--------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------QFNL000100--",
+            "description": "Women's Quarter-final",
+            "shortDescription": "Quarter-final",
+            "longDescription": "Women's Quarter-final",
+            "seodescription": "qfnl000100--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------QFNL000200--",
+            "description": "Women's Quarter-final",
+            "shortDescription": "Quarter-final",
+            "longDescription": "Women's Quarter-final",
+            "seodescription": "qfnl000200--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------QFNL000300--",
+            "description": "Women's Quarter-final",
+            "shortDescription": "Quarter-final",
+            "longDescription": "Women's Quarter-final",
+            "seodescription": "qfnl000300--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------QFNL000400--",
+            "description": "Women's Quarter-final",
+            "shortDescription": "Quarter-final",
+            "longDescription": "Women's Quarter-final",
+            "seodescription": "qfnl000400--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------SFNL--------",
+            "description": "Women's Semi-finals",
+            "shortDescription": "Semi-finals",
+            "longDescription": "Women's Semi-finals",
+            "seodescription": "sfnl--------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------SFNL000100--",
+            "description": "Women's Semi-final",
+            "shortDescription": "Semi-final",
+            "longDescription": "Women's Semi-final",
+            "seodescription": "sfnl000100--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------SFNL000200--",
+            "description": "Women's Semi-final",
+            "shortDescription": "Semi-final",
+            "longDescription": "Women's Semi-final",
+            "seodescription": "sfnl000200--",
+            "type": "HTEAM",
+            "scheduled": "Y",
+            "phase": {
+                "type": "3"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------VICT--------",
+            "description": "Women's Victory Ceremony",
+            "shortDescription": "Victory Ceremony",
+            "longDescription": "Women's Victory Ceremony",
+            "seodescription": "vict--------",
+            "type": "NONE",
+            "scheduled": "N",
+            "phase": {
+                "type": "6"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------VICTBRONZE--",
+            "description": "Women's Bronze Ceremony",
+            "shortDescription": "Bronze Ceremony",
+            "longDescription": "Women's Bronze Ceremony",
+            "seodescription": "victbronze--",
+            "type": "NONE",
+            "scheduled": "Y",
+            "phase": {
+                "type": "6"
+            }
+        },
+        {
+            "code": "FBLWTEAM11------------VICTMEDAL---",
+            "description": "Women's Victory Ceremony",
+            "shortDescription": "Victory Ceremony",
+            "longDescription": "Women's Victory Ceremony",
+            "seodescription": "victmedal---",
+            "type": "NONE",
+            "scheduled": "Y",
+            "phase": {
+                "type": "6"
+            }
+        }
+    ]
+}
