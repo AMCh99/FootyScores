@@ -74,13 +74,18 @@ function mapScorers(seed: MatchSeed, detail: MatchDetail): EndpointScorer[] {
           ? seed.awayTeamName
           : "Unknown";
 
-    return {
+    const scorerRecord: EndpointScorer = {
       team: safeString(teamName, "Unknown"),
       player: safeString(scorer.player, "Unknown"),
       minute: scorer.minute,
-      assist: scorer.assist ? safeString(scorer.assist, "Unknown") : undefined,
       type: safeString(scorer.type, "open_play"),
     };
+
+    if (scorer.assist && scorer.assist.trim().length > 0) {
+      scorerRecord.assist = safeString(scorer.assist, "Unknown");
+    }
+
+    return scorerRecord;
   });
 }
 

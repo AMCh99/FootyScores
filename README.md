@@ -9,9 +9,7 @@ FootyScores is a Next.js + TypeScript tool for QA engineers to generate determin
 - Transforms each match into the exact endpoint schema from `task/example.json`.
 - Provides a UI to trigger generation and inspect match source + generated endpoint JSON.
 - Exports generated endpoints as machine-readable JSON.
-- Supports two data modes:
-	- Live mode (official source)
-	- Fixture mode (`api_examples`) fallback for stable local development.
+- Uses the official Olympics source as the runtime data input.
 
 ## Tech Stack
 
@@ -60,6 +58,7 @@ npm run dev
 
 Primary live source uses the official Olympics endpoint pattern:
 
+- Competition schedule source of truth: `https://stacy.olympics.com/en/paris-2024/competition-schedule`
 - `https://stacy.olympics.com/OG2024/data/<filename>.json`
 - labels endpoint: `https://stacy.olympics.com/OG2024/locales/eng/labels.json`
 
@@ -71,7 +70,7 @@ Implemented endpoint families:
 - `SEL_Phases~comp=OG2024~lang=ENG~event=<eventCode>.json`
 - `RES_ByRSC_H2H~comp=OG2024~disc=FBL~rscResult=<matchCode>~lang=ENG.json`
 
-When live retrieval is unavailable, the app falls back to `api_examples` fixture files.
+The `api_examples` directory is retained only as optional reference material when defining interfaces and parser contracts. Runtime generation does not read from `api_examples`.
 
 ## Architecture
 
@@ -109,8 +108,30 @@ Current tests cover:
 - Deterministic sorting
 - Canonical-to-endpoint transformation
 - Parser behavior for schedule and match details
+- Integration checks with mocked official payload retrieval: no duplicates, football-only coverage, deterministic ordering
+- Endpoint contract shape against `task/example.json`
 
 Tests are in `src/lib/__tests__`.
+
+Run the full validation suite before submission:
+
+```bash
+npm run lint
+npm run test
+npm run build
+```
+
+## Deploy (Vercel)
+
+1. Push this repository to GitHub.
+2. In Vercel, import the repository as a new project.
+3. Keep the default Next.js build settings.
+4. Deploy.
+
+Notes:
+
+- Node runtime is pinned via `package.json` engines (`22.x`), which Vercel respects.
+- No custom environment variables are required for the core generator flow.
 
 ## Assignment References
 

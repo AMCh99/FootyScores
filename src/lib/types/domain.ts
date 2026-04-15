@@ -1,7 +1,5 @@
 import type { MatchEndpoint } from "@/lib/types/endpoint";
 
-export type SourceMode = "live" | "fixture";
-
 export interface MatchSeed {
   matchCode: string;
   eventCode: string;
@@ -57,7 +55,7 @@ export interface MatchSourceSummary {
   awayTeam: string;
   status: string;
   round: string;
-  sourceMode: SourceMode;
+  sourceMode: "official";
 }
 
 export interface GeneratedMatchRecord {
@@ -66,8 +64,7 @@ export interface GeneratedMatchRecord {
 }
 
 export interface GenerationDiagnostics {
-  sourceMode: SourceMode;
-  fallbackUsed: boolean;
+  sourceMode: "official";
   generatedAt: string;
   totalMatches: number;
   failedEndpoints: string[];

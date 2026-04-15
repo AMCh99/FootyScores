@@ -10,7 +10,7 @@ const baseRecord: GeneratedMatchRecord = {
     awayTeam: "Spain",
     status: "FT",
     round: "Group A",
-    sourceMode: "fixture",
+    sourceMode: "official",
   },
   endpoint: {
     competition: {

@@ -16,14 +16,9 @@ import type {
   GenerationResult,
   GeneratedMatchRecord,
   MatchSourceSummary,
-  SourceMode,
 } from "@/lib/types/domain";
 
-function buildSourceSummary(
-  record: GeneratedMatchRecord,
-  sourceMode: SourceMode,
-  round: string,
-): MatchSourceSummary {
+function buildSourceSummary(record: GeneratedMatchRecord, round: string): MatchSourceSummary {
   return {
     matchCode: record.source.matchCode,
     eventCode: record.source.eventCode,
@@ -32,12 +27,12 @@ function buildSourceSummary(
     awayTeam: record.source.awayTeam,
     status: record.source.status,
     round,
-    sourceMode,
+    sourceMode: "official",
   };
 }
 
-export async function generateMatchEndpoints(preferredMode: SourceMode): Promise<GenerationResult> {
-  const payloads = await retrieveOlympicPayloads(preferredMode);
+export async function generateMatchEndpoints(): Promise<GenerationResult> {
+  const payloads = await retrieveOlympicPayloads();
 
   let seeds;
 
@@ -72,7 +67,7 @@ export async function generateMatchEndpoints(preferredMode: SourceMode): Promise
         awayTeam: seed.awayTeamName,
         status: endpoint.status,
         round,
-        sourceMode: payloads.sourceMode,
+        sourceMode: "official",
       },
       endpoint,
     };
@@ -83,13 +78,12 @@ export async function generateMatchEndpoints(preferredMode: SourceMode): Promise
   return {
     diagnostics: {
       sourceMode: payloads.sourceMode,
-      fallbackUsed: payloads.fallbackUsed,
       generatedAt: new Date().toISOString(),
       totalMatches: sorted.length,
       failedEndpoints: payloads.failedEndpoints,
     },
     matches: sorted.map((record) => ({
-      source: buildSourceSummary(record, payloads.sourceMode, record.source.round),
+      source: buildSourceSummary(record, record.source.round),
       endpoint: record.endpoint,
     })),
   };

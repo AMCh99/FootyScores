@@ -18,13 +18,3 @@ export const endpointTemplates = {
   resultByMatch: (matchCode: string) =>
     `RES_ByRSC_H2H~comp=${OLYMPICS_COMPETITION_CODE}~disc=${FOOTBALL_DISCIPLINE}~rscResult=${matchCode}~lang=${OLYMPICS_LANGUAGE}.json`,
 };
-
-export const fixtureFiles = {
-  startList: "SCH_StartList~comp=OG2024~disc=FBL~lang=ENG.json",
-  eventUnits: "GLO_EventUnits~comp=OG2024~disc=FBL~lang=ENG.json",
-  eventGamesMen: "GLO_EventGames~comp=OG2024~event=FBLMTEAM11------------~lang=ENG.json",
-  phasesMen: "SEL_Phases~comp=OG2024~lang=ENG~event=FBLMTEAM11------------.json",
-  oneResultSample:
-    "RES_ByRSC_H2H~comp=OG2024~disc=FBL~rscResult=FBLMTEAM11------------GPB-000100--~lang=ENG.json",
-  labels: "labels.json",
-};

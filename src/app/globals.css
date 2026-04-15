@@ -160,6 +160,19 @@ a {
   animation: reveal 260ms ease both;
 }
 
+.match-card.clickable {
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+}
+
+.match-card.clickable:hover,
+.match-card.clickable:focus-visible {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+  box-shadow: 0 14px 24px rgba(18, 39, 26, 0.12);
+  outline: none;
+}
+
 .match-card h3 {
   margin: 0;
   font-size: 1.05rem;
@@ -188,6 +201,13 @@ a {
   margin: 0;
 }
 
+.match-card .card-hint {
+  margin: 0 0 0.65rem;
+  font-size: 0.82rem;
+  color: var(--accent-2);
+  font-weight: 600;
+}
+
 .match-card pre {
   margin: 0;
   border-radius: 12px;
@@ -199,6 +219,71 @@ a {
   line-height: 1.45;
   font-family: var(--mono), monospace;
   max-height: 300px;
+}
+
+.fullscreen-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(16, 27, 22, 0.56);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.fullscreen-panel {
+  width: min(1200px, 96vw);
+  max-height: 92vh;
+  overflow: auto;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: 0 24px 40px rgba(18, 39, 26, 0.32);
+  padding: 1rem;
+}
+
+.fullscreen-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.fullscreen-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.fullscreen-header p {
+  margin: 0.45rem 0 0;
+  color: var(--ink-1);
+  font-size: 0.9rem;
+}
+
+.fullscreen-columns {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.fullscreen-section h3 {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
+
+.fullscreen-section pre {
+  margin: 0;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #f8fbf9;
+  padding: 0.75rem;
+  overflow: auto;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  font-family: var(--mono), monospace;
+  min-height: 340px;
 }
 
 @keyframes reveal {
@@ -223,6 +308,14 @@ a {
   }
 
   .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fullscreen-header {
+    flex-direction: column;
+  }
+
+  .fullscreen-columns {
     grid-template-columns: 1fr;
   }
 }

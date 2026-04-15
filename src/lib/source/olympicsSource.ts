@@ -1,15 +1,8 @@
-import { readFile } from "node:fs/promises";
-import path from "node:path";
-
 import {
   endpointTemplates,
-  fixtureFiles,
   OLYMPICS_DATA_BASE_URL,
   OLYMPICS_LABELS_URL,
 } from "@/lib/constants/endpoints";
-import { errorMessages } from "@/lib/errors/messages";
-import { parseResultMatchCode } from "@/lib/parsers/olympicsParsers";
-import type { SourceMode } from "@/lib/types/domain";
 
 interface ResultEntry {
   matchCode: string;
@@ -19,8 +12,7 @@ interface ResultEntry {
 const EVENT_CODE_LENGTH = 22;
 
 export interface RetrievedOlympicPayloads {
-  sourceMode: SourceMode;
-  fallbackUsed: boolean;
+  sourceMode: "official";
   failedEndpoints: string[];
   startListPayload: unknown;
   eventUnitsPayload: unknown;
@@ -56,13 +48,6 @@ async function fetchJson(url: string): Promise<unknown> {
   }
 
   return (await response.json()) as unknown;
-}
-
-async function readFixtureJson(fileName: string): Promise<unknown> {
-  const fixturePath = path.join(process.cwd(), "api_examples", fileName);
-  const raw = await readFile(fixturePath, "utf8");
-
-  return JSON.parse(raw) as unknown;
 }
 
 function extractMatchCodesFromStartList(payload: unknown): string[] {
@@ -112,43 +97,7 @@ async function mapWithConcurrency<T, R>(
   return results;
 }
 
-async function loadFixturePayloads(): Promise<RetrievedOlympicPayloads> {
-  const [startListPayload, eventUnitsPayload, eventGamesMen, phasesMen, oneResultPayload, labelsPayload] =
-    await Promise.all([
-      readFixtureJson(fixtureFiles.startList),
-      readFixtureJson(fixtureFiles.eventUnits),
-      readFixtureJson(fixtureFiles.eventGamesMen),
-      readFixtureJson(fixtureFiles.phasesMen),
-      readFixtureJson(fixtureFiles.oneResultSample),
-      readFixtureJson(fixtureFiles.labels),
-    ]);
-
-  const resultPayloadByMatchCode = new Map<string, unknown>();
-
-  try {
-    const matchCode = parseResultMatchCode(oneResultPayload);
-
-    if (matchCode.length > 0) {
-      resultPayloadByMatchCode.set(matchCode, oneResultPayload);
-    }
-  } catch {
-    // Keep fixture mode operational even when one optional sample cannot be keyed.
-  }
-
-  return {
-    sourceMode: "fixture",
-    fallbackUsed: false,
-    failedEndpoints: [],
-    startListPayload,
-    eventUnitsPayload,
-    eventGamesPayloads: [eventGamesMen],
-    phasePayloads: [phasesMen],
-    resultPayloadByMatchCode,
-    labelsPayload,
-  };
-}
-
-async function loadLivePayloads(): Promise<RetrievedOlympicPayloads> {
+export async function retrieveOlympicPayloads(): Promise<RetrievedOlympicPayloads> {
   const failedEndpoints: string[] = [];
   const startListFile = endpointTemplates.startList();
   const eventUnitsFile = endpointTemplates.eventUnits();
@@ -225,8 +174,7 @@ async function loadLivePayloads(): Promise<RetrievedOlympicPayloads> {
   }
 
   return {
-    sourceMode: "live",
-    fallbackUsed: false,
+    sourceMode: "official",
     failedEndpoints,
     startListPayload,
     eventUnitsPayload,
@@ -235,25 +183,4 @@ async function loadLivePayloads(): Promise<RetrievedOlympicPayloads> {
     resultPayloadByMatchCode,
     labelsPayload,
   };
-}
-
-export async function retrieveOlympicPayloads(preferredMode: SourceMode): Promise<RetrievedOlympicPayloads> {
-  if (preferredMode === "fixture") {
-    return loadFixturePayloads();
-  }
-
-  try {
-    return await loadLivePayloads();
-  } catch (error) {
-    const fixturePayloads = await loadFixturePayloads();
-
-    return {
-      ...fixturePayloads,
-      fallbackUsed: true,
-      failedEndpoints: [
-        `${errorMessages.sourceUnavailable}: ${String(error)}`,
-        ...fixturePayloads.failedEndpoints,
-      ],
-    };
-  }
 }

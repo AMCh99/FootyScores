@@ -1,13 +1,13 @@
 "use client";
 
-import type { ChangeEvent } from "react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { MatchEndpointCard } from "@/components/MatchEndpointCard";
+import { MatchFullscreenView } from "@/components/MatchFullscreenView";
 import { StatePanel } from "@/components/StatePanel";
 import { errorMessages } from "@/lib/errors/messages";
 import { exportEndpointsToJson } from "@/lib/export/exportJson";
-import type { GenerationResult, SourceMode } from "@/lib/types/domain";
+import type { GeneratedMatchRecord, GenerationResult } from "@/lib/types/domain";
 import type { MatchEndpoint } from "@/lib/types/endpoint";
 
 interface ApiErrorResponse {
@@ -44,10 +44,31 @@ function downloadJson(fileName: string, endpoints: MatchEndpoint[]): void {
 }
 
 export default function HomePage() {
-  const [mode, setMode] = useState<SourceMode>("live");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
   const [result, setResult] = useState<GenerationResult | null>(null);
+  const [selectedRecord, setSelectedRecord] = useState<GeneratedMatchRecord | null>(null);
+
+  useEffect(() => {
+    if (!selectedRecord) {
+      return;
+    }
+
+    const handleEscape = (event: KeyboardEvent): void => {
+      if (event.key === "Escape") {
+        setSelectedRecord(null);
+      }
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [selectedRecord]);
 
   const endpoints = useMemo(() => {
     if (!result) {
@@ -64,12 +85,6 @@ export default function HomePage() {
     try {
       const response = await fetch("/api/generate", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          mode,
-        }),
       });
 
       if (!response.ok) {
@@ -98,27 +113,19 @@ export default function HomePage() {
     downloadJson("olympic-football-endpoints.json", endpoints);
   };
 
+  const handleOpenApi = (): void => {
+    window.open("/api/generate", "_blank", "noopener,noreferrer");
+  };
+
   return (
     <main className="app-shell">
       <section className="hero">
         <h1>FootyScores Paris 2024 Endpoint Generator</h1>
         <p>
           Generate deterministic, football-only endpoint payloads from official Olympic schedule data.
-          Use live mode to call official sources or fixture mode to build from api_examples.
+          Data generation uses the official Olympics source and excludes non-football events.
         </p>
         <div className="controls">
-          <select
-            className="control-select"
-            value={mode}
-            onChange={(event: ChangeEvent<HTMLSelectElement>) =>
-              setMode(event.target.value as SourceMode)
-            }
-            aria-label="Source mode"
-            disabled={isLoading}
-          >
-            <option value="live">Live official source</option>
-            <option value="fixture">Fixture mode (api_examples)</option>
-          </select>
           <button className="control-button" onClick={handleGenerate} disabled={isLoading} type="button">
             {isLoading ? "Generating..." : "Load and Generate"}
           </button>
@@ -129,6 +136,14 @@ export default function HomePage() {
             type="button"
           >
             Export JSON
+          </button>
+          <button
+            className="control-button secondary"
+            onClick={handleOpenApi}
+            disabled={isLoading}
+            type="button"
+          >
+            Open API JSON
           </button>
         </div>
       </section>
@@ -147,7 +162,7 @@ export default function HomePage() {
       {!isLoading && !error && result && result.matches.length === 0 && (
         <StatePanel
           title="No Football Matches Found"
-          message="No football fixtures were generated from the selected source."
+          message="No football matches were generated from the official source."
         />
       )}
 
@@ -158,19 +173,25 @@ export default function HomePage() {
               <strong>{result.matches.length}</strong> football matches generated
             </div>
             <div className="meta">
-              mode={result.diagnostics.sourceMode} | fallbackUsed={String(result.diagnostics.fallbackUsed)} |
-              failedEndpoints={result.diagnostics.failedEndpoints.length} | generatedAt=
+              source={result.diagnostics.sourceMode} | failedEndpoints=
+              {result.diagnostics.failedEndpoints.length} | generatedAt=
               {result.diagnostics.generatedAt}
             </div>
           </section>
 
           <section className="results-grid" aria-label="Generated match endpoints">
             {result.matches.map((record: GenerationResult["matches"][number]) => (
-              <MatchEndpointCard key={record.source.matchCode} record={record} />
+              <MatchEndpointCard
+                key={record.source.matchCode}
+                record={record}
+                onOpen={setSelectedRecord}
+              />
             ))}
           </section>
         </>
       )}
+
+      {selectedRecord && <MatchFullscreenView record={selectedRecord} onClose={() => setSelectedRecord(null)} />}
     </main>
   );
 }
