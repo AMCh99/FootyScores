@@ -110,7 +110,7 @@ a {
 
 .workspace-subtitle {
   margin: 0.5rem 0 0;
-  max-width: 72ch;
+  max-width: 100ch;
   color: var(--on-surface-variant);
   font-size: 0.9rem;
   line-height: 1.52;
@@ -224,7 +224,7 @@ a {
 
 .master-detail-layout {
   display: grid;
-  grid-template-columns: minmax(300px, 32vw) minmax(0, 1fr);
+  grid-template-columns: minmax(250px, 24vw) minmax(0, 1fr);
   gap: 1rem;
   align-items: start;
 }
@@ -570,21 +570,26 @@ a {
   font-family: var(--mono), monospace;
 }
 
-.detail-json-grid {
+.endpoint-inspection {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.75rem;
+  align-items: start;
 }
 
-.detail-json-grid article {
+.endpoint-inspection.with-context {
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.65fr);
+}
+
+.generated-endpoint-panel {
   border-radius: var(--radius-md);
   background: var(--surface-container-high);
   padding: 0.72rem;
 }
 
-.detail-json-grid h3 {
+.generated-endpoint-panel h3 {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--secondary);
@@ -592,17 +597,17 @@ a {
   font-weight: 500;
 }
 
-.detail-json-grid pre {
+.generated-endpoint-panel pre {
   margin: 0.58rem 0 0;
   border-radius: var(--radius-sm);
   background: var(--surface-container-lowest);
   color: var(--on-surface);
-  padding: 0.85rem;
+  padding: 0.95rem;
   overflow: auto;
-  font-size: 0.74rem;
-  line-height: 1.5;
-  min-height: 250px;
-  max-height: 520px;
+  font-size: 0.81rem;
+  line-height: 1.58;
+  min-height: 460px;
+  max-height: 76vh;
   font-family: var(--mono), monospace;
 }
 
@@ -642,6 +647,15 @@ a {
   font-size: 0.73rem;
   line-height: 1.45;
   font-family: var(--mono), monospace;
+}
+
+.source-context-column {
+  align-self: stretch;
+}
+
+.source-context-column pre {
+  min-height: 460px;
+  max-height: 76vh;
 }
 
 .source-context-loading {
@@ -748,8 +762,12 @@ a {
   }
 
   .detail-overview-grid,
-  .detail-json-grid,
+  .endpoint-inspection,
   .loading-skeleton-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .endpoint-inspection.with-context {
     grid-template-columns: 1fr;
   }
 

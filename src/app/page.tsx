@@ -428,42 +428,37 @@ export default function HomePage() {
                   </article>
                 </section>
 
-                <div className="detail-json-grid">
-                  <article>
-                    <h3>Source Match Data</h3>
-                    <pre>{JSON.stringify(selectedRecord.source, null, 2)}</pre>
-                  </article>
-
-                  <article>
+                <section className={`endpoint-inspection${showSourceContext ? " with-context" : ""}`}>
+                  <article className="generated-endpoint-panel">
                     <h3>Generated Endpoint</h3>
                     <pre>{JSON.stringify(selectedRecord.endpoint, null, 2)}</pre>
                   </article>
-                </div>
 
-                {showSourceContext && (
-                  <section className="source-context-panel" aria-live="polite">
-                    <h3>Full Source Context</h3>
-                    <p>
-                      Combined per-match data pulled from connected official endpoints (StartList, EventUnits,
-                      EventGames, Phases, Result, and Labels).
-                    </p>
+                  {showSourceContext && (
+                    <section className="source-context-panel source-context-column" aria-live="polite">
+                      <h3>Full Source Context</h3>
+                      <p>
+                        Combined per-match data pulled from connected official endpoints (StartList, EventUnits,
+                        EventGames, Phases, Result, and Labels).
+                      </p>
 
-                    {isSourceContextLoading && (
-                      <div className="source-context-loading" role="status" aria-live="polite">
-                        <span className="source-context-spinner" aria-hidden="true" />
-                        Loading all connected source inputs...
-                      </div>
-                    )}
+                      {isSourceContextLoading && (
+                        <div className="source-context-loading" role="status" aria-live="polite">
+                          <span className="source-context-spinner" aria-hidden="true" />
+                          Loading all connected source inputs...
+                        </div>
+                      )}
 
-                    {!isSourceContextLoading && sourceContextError.length > 0 && (
-                      <p className="source-context-error">{sourceContextError}</p>
-                    )}
+                      {!isSourceContextLoading && sourceContextError.length > 0 && (
+                        <p className="source-context-error">{sourceContextError}</p>
+                      )}
 
-                    {!isSourceContextLoading && !sourceContextError && selectedSourceContext && (
-                      <pre>{JSON.stringify(selectedSourceContext, null, 2)}</pre>
-                    )}
-                  </section>
-                )}
+                      {!isSourceContextLoading && !sourceContextError && selectedSourceContext && (
+                        <pre>{JSON.stringify(selectedSourceContext, null, 2)}</pre>
+                      )}
+                    </section>
+                  )}
+                </section>
               </section>
             </section>
           )
