@@ -17,7 +17,9 @@ export interface RetrievedOlympicPayloads {
   startListPayload: unknown;
   eventUnitsPayload: unknown;
   eventGamesPayloads: unknown[];
+  eventGamesPayloadByEventCode?: Map<string, unknown>;
   phasePayloads: unknown[];
+  phasePayloadByEventCode?: Map<string, unknown>;
   resultPayloadByMatchCode: Map<string, unknown>;
   labelsPayload: unknown;
 }
@@ -116,6 +118,8 @@ export async function retrieveOlympicPayloads(): Promise<RetrievedOlympicPayload
 
   const matchCodes = extractMatchCodesFromStartList(startListPayload);
   const eventCodes = extractEventCodesFromMatchCodes(matchCodes);
+  const eventGamesPayloadByEventCode = new Map<string, unknown>();
+  const phasePayloadByEventCode = new Map<string, unknown>();
 
   const eventGamesPayloads = (
     await Promise.all(
@@ -123,7 +127,11 @@ export async function retrieveOlympicPayloads(): Promise<RetrievedOlympicPayload
         const file = endpointTemplates.eventGames(eventCode);
 
         try {
-          return await fetchJson(buildDataUrl(file));
+          const payload = await fetchJson(buildDataUrl(file));
+
+          eventGamesPayloadByEventCode.set(eventCode, payload);
+
+          return payload;
         } catch (error) {
           failedEndpoints.push(`${file}: ${String(error)}`);
           return null;
@@ -138,7 +146,11 @@ export async function retrieveOlympicPayloads(): Promise<RetrievedOlympicPayload
         const file = endpointTemplates.phases(eventCode);
 
         try {
-          return await fetchJson(buildDataUrl(file));
+          const payload = await fetchJson(buildDataUrl(file));
+
+          phasePayloadByEventCode.set(eventCode, payload);
+
+          return payload;
         } catch (error) {
           failedEndpoints.push(`${file}: ${String(error)}`);
           return null;
@@ -179,7 +191,9 @@ export async function retrieveOlympicPayloads(): Promise<RetrievedOlympicPayload
     startListPayload,
     eventUnitsPayload,
     eventGamesPayloads,
+    eventGamesPayloadByEventCode,
     phasePayloads,
+    phasePayloadByEventCode,
     resultPayloadByMatchCode,
     labelsPayload,
   };

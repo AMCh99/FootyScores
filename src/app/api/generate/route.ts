@@ -6,6 +6,7 @@ import type { GenerationResult } from "@/lib/types/domain";
 
 interface GenerateRequestBody {
   matchCode?: string;
+  includeSourceContext?: boolean;
 }
 
 function normalizeMatchCode(value: string | null | undefined): string {
@@ -14,6 +15,20 @@ function normalizeMatchCode(value: string | null | undefined): string {
   }
 
   return value.trim();
+}
+
+function normalizeBoolean(value: unknown): boolean {
+  if (typeof value === "boolean") {
+    return value;
+  }
+
+  if (typeof value === "string") {
+    const normalized = value.trim().toLowerCase();
+
+    return normalized === "true" || normalized === "1" || normalized === "yes" || normalized === "on";
+  }
+
+  return false;
 }
 
 function selectSingleMatchResult(result: GenerationResult, matchCode: string): GenerationResult | null {
@@ -36,9 +51,11 @@ function selectSingleMatchResult(result: GenerationResult, matchCode: string): G
   };
 }
 
-async function generateResponse(matchCode: string): Promise<NextResponse> {
+async function generateResponse(matchCode: string, includeSourceContext: boolean): Promise<NextResponse> {
   try {
-    const result = await generateMatchEndpoints();
+    const result = await generateMatchEndpoints({
+      includeSourceContext,
+    });
     const selectedResult = selectSingleMatchResult(result, matchCode);
 
     if (!selectedResult) {
@@ -73,8 +90,9 @@ async function generateResponse(matchCode: string): Promise<NextResponse> {
 
 export async function GET(request: NextRequest): Promise<NextResponse> {
   const matchCode = normalizeMatchCode(request.nextUrl.searchParams.get("matchCode"));
+  const includeSourceContext = normalizeBoolean(request.nextUrl.searchParams.get("includeSourceContext"));
 
-  return generateResponse(matchCode);
+  return generateResponse(matchCode, includeSourceContext);
 }
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
@@ -87,6 +105,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   }
 
   const matchCode = normalizeMatchCode(body?.matchCode);
+  const includeSourceContext = normalizeBoolean(body?.includeSourceContext);
 
-  return generateResponse(matchCode);
+  return generateResponse(matchCode, includeSourceContext);
 }

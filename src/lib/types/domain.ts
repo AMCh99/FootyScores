@@ -56,6 +56,42 @@ export interface MatchSourceSummary {
   status: string;
   round: string;
   sourceMode: "official";
+  sourceContext?: MatchSourceContext;
+}
+
+export interface RoundResolutionTrace {
+  fromPhaseOrUnits: string | null;
+  fromEventGames: string | null;
+  fallbackFromMatchCode: string;
+  finalRound: string;
+}
+
+export interface MatchSourceContext {
+  sourceEndpoints: {
+    startList: string;
+    eventUnits: string;
+    eventGames: string;
+    phases: string;
+    resultByMatch: string;
+    labels: string;
+  };
+  seed: MatchSeed;
+  parsedDetail: MatchDetail;
+  mergedDetail: MatchDetail;
+  eventGameSummary: {
+    scoreHome: number;
+    scoreAway: number;
+    status: string;
+    round: string;
+  } | null;
+  rawPayloads: {
+    eventUnits: unknown;
+    eventGames: unknown | null;
+    phases: unknown | null;
+    resultByMatch: unknown | null;
+    labels: unknown;
+  };
+  roundResolution: RoundResolutionTrace;
 }
 
 export interface GeneratedMatchRecord {

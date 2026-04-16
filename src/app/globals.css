@@ -506,6 +506,67 @@ a {
   font-family: var(--mono), monospace;
 }
 
+.source-context-panel {
+  border-radius: 0.85rem;
+  border: 1px solid #c8d4e4;
+  background: #f7fbff;
+  padding: 0.82rem;
+}
+
+.source-context-panel h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-family: var(--mono), monospace;
+}
+
+.source-context-panel p {
+  margin: 0.52rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.source-context-panel pre {
+  margin: 0.72rem 0 0;
+  border-radius: 0.72rem;
+  border: 1px solid #c8d4e4;
+  background: #081c31;
+  color: #bfd5ec;
+  padding: 0.7rem;
+  overflow: auto;
+  max-height: 360px;
+  font-size: 0.74rem;
+  line-height: 1.45;
+  font-family: var(--mono), monospace;
+}
+
+.source-context-loading {
+  margin-top: 0.72rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.48rem;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+}
+
+.source-context-spinner {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #b7c7da;
+  border-top-color: var(--brand);
+  animation: orbit-spin 0.9s linear infinite;
+}
+
+.source-context-error {
+  margin-top: 0.72rem;
+  color: var(--error);
+  font-weight: 600;
+}
+
 .state-panel {
   border-radius: 0.9rem;
   border: 1px solid var(--line);
