@@ -4,11 +4,26 @@ import type { GeneratedMatchRecord } from "@/lib/types/domain";
 
 interface MatchEndpointCardProps {
   record: GeneratedMatchRecord;
+  isSelected?: boolean;
   onOpen?: (record: GeneratedMatchRecord) => void;
 }
 
-export function MatchEndpointCard({ record, onOpen }: MatchEndpointCardProps) {
+function formatDateTime(value: string): string {
+  const parsed = new Date(value);
+
+  if (Number.isNaN(parsed.getTime())) {
+    return value;
+  }
+
+  return new Intl.DateTimeFormat("en-GB", {
+    dateStyle: "medium",
+    timeStyle: "short",
+  }).format(parsed);
+}
+
+export function MatchEndpointCard({ record, isSelected = false, onOpen }: MatchEndpointCardProps) {
   const isInteractive = typeof onOpen === "function";
+  const endpointPreview = JSON.stringify(record.endpoint, null, 2);
 
   const handleOpen = (): void => {
     if (!onOpen) {
@@ -31,33 +46,29 @@ export function MatchEndpointCard({ record, onOpen }: MatchEndpointCardProps) {
 
   return (
     <article
-      className={`match-card${isInteractive ? " clickable" : ""}`}
+      className={`match-list-item${isInteractive ? " clickable" : ""}${isSelected ? " selected" : ""}`}
       onClick={isInteractive ? handleOpen : undefined}
       onKeyDown={handleKeyDown}
       role={isInteractive ? "button" : undefined}
       tabIndex={isInteractive ? 0 : undefined}
       aria-label={isInteractive ? `Open fullscreen details for ${record.source.matchCode}` : undefined}
     >
-      <h3>
-        {record.endpoint.teams.home} vs {record.endpoint.teams.away}
-      </h3>
-      <p className="meta">
-        {record.endpoint.kickoff} | {record.endpoint.competition.round}
-      </p>
-      <dl>
-        <dt>Code</dt>
-        <dd>{record.source.matchCode}</dd>
-        <dt>Status</dt>
-        <dd>{record.endpoint.status}</dd>
-        <dt>Venue</dt>
-        <dd>
-          {record.endpoint.venue.name}, {record.endpoint.venue.city}
-        </dd>
-        <dt>Source</dt>
-        <dd>{record.source.sourceMode}</dd>
-      </dl>
-      {isInteractive && <p className="card-hint">Click card to open fullscreen details.</p>}
-      <pre>{JSON.stringify(record.endpoint, null, 2)}</pre>
+      <div className="match-list-item-top">
+        <div>
+          <h3>
+            {record.endpoint.teams.home} vs {record.endpoint.teams.away}
+          </h3>
+          <p className="meta">
+            {formatDateTime(record.endpoint.kickoff)} | {record.endpoint.competition.round}
+          </p>
+          <p className="footnote">{record.source.matchCode}</p>
+        </div>
+
+        <span className="status-pill">{record.endpoint.status}</span>
+      </div>
+
+      <p className="endpoint-label">Generated Endpoint</p>
+      <pre className="endpoint-preview">{endpointPreview}</pre>
     </article>
   );
 }
