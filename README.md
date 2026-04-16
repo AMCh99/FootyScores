@@ -2,6 +2,11 @@
 
 FootyScores is a Next.js + TypeScript tool for QA engineers to generate deterministic expected API payloads for football matches from the Paris 2024 Olympic schedule.
 
+## Live Website
+
+- URL: https://footy-scores.vercel.app/
+- Hosting: Deployed on Vercel.
+
 ## Features
 
 - Retrieves Olympic football data from official endpoint families.
@@ -179,18 +184,6 @@ npm run lint
 npm run test
 npm run build
 ```
-
-## Deploy (Vercel)
-
-1. Push this repository to GitHub.
-2. In Vercel, import the repository as a new project.
-3. Keep the default Next.js build settings.
-4. Deploy.
-
-Notes:
-
-- Node runtime is pinned via `package.json` engines (`22.x`), which Vercel respects.
-- No custom environment variables are required for the core generator flow.
 
 ## Assignment References
 
