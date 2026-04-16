@@ -1,3 +1,8 @@
+import { readFileSync } from "node:fs";
+import path from "node:path";
+
+import { dedupeByMatchCode, filterFootballMatches } from "@/lib/filters/footballFilter";
+import { parseScheduleSeeds } from "@/lib/parsers/olympicsParsers";
 import { generateMatchEndpoints } from "@/lib/pipeline/generateEndpoints";
 import { retrieveOlympicPayloads } from "@/lib/source/olympicsSource";
 import type { RetrievedOlympicPayloads } from "@/lib/source/olympicsSource";
@@ -9,6 +14,14 @@ jest.mock("@/lib/source/olympicsSource", () => ({
 }));
 
 const mockedRetrieveOlympicPayloads = jest.mocked(retrieveOlympicPayloads);
+
+const START_LIST_FIXTURE_FILE = "SCH_StartList~comp=OG2024~disc=FBL~lang=ENG.json";
+
+function readJsonFixture(fileName: string): unknown {
+  const fixturePath = path.resolve(process.cwd(), "api_examples", fileName);
+
+  return JSON.parse(readFileSync(fixturePath, "utf8")) as unknown;
+}
 
 function createSchedule(
   matchCode: string,
@@ -89,6 +102,19 @@ function createMockPayloads(): RetrievedOlympicPayloads {
         ),
       ],
     },
+    eventUnitsPayload: {},
+    eventGamesPayloads: [],
+    phasePayloads: [],
+    resultPayloadByMatchCode: new Map<string, unknown>(),
+    labelsPayload: {},
+  };
+}
+
+function createOfficialFixturePayloads(): RetrievedOlympicPayloads {
+  return {
+    sourceMode: "official",
+    failedEndpoints: [],
+    startListPayload: readJsonFixture(START_LIST_FIXTURE_FILE),
     eventUnitsPayload: {},
     eventGamesPayloads: [],
     phasePayloads: [],
@@ -199,5 +225,23 @@ describe("generateMatchEndpoints (official source integration)", () => {
 
       assertEndpointSchema(serializedEndpoint);
     }
+  });
+
+  it("covers all playable Paris 2024 football matches from official start list fixture", async () => {
+    const fixturePayloads = createOfficialFixturePayloads();
+    const fixtureSeeds = dedupeByMatchCode(filterFootballMatches(parseScheduleSeeds(fixturePayloads.startListPayload)));
+    const expectedMatchCodes = fixtureSeeds.map((seed) => seed.matchCode).sort();
+
+    mockedRetrieveOlympicPayloads.mockResolvedValue(fixturePayloads);
+
+    const result = await generateMatchEndpoints();
+    const generatedMatchCodes = result.matches.map((record) => record.source.matchCode).sort();
+
+    expect(generatedMatchCodes).toEqual(expectedMatchCodes);
+    expect(result.matches.length).toBe(58);
+    expect(result.diagnostics.totalMatches).toBe(58);
+    expect(generatedMatchCodes.some((code) => code.includes("VICT"))).toBe(false);
+    expect(generatedMatchCodes.filter((code) => code.startsWith("FBLM"))).toHaveLength(32);
+    expect(generatedMatchCodes.filter((code) => code.startsWith("FBLW"))).toHaveLength(26);
   });
 });
