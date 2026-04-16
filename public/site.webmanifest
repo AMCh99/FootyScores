@@ -1,0 +1,16 @@
+{
+  "name": "footy-scores",
+  "short_name": "footy-scores",
+  "description": "Generate deterministic football endpoint payloads for Paris 2024 Olympic matches.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1326",
+  "theme_color": "#0b1326",
+  "icons": [
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

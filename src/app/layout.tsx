@@ -24,6 +24,27 @@ export const metadata: Metadata = {
   title: "footy-scores",
   description:
     "Generate deterministic football endpoint payloads for Paris 2024 Olympic matches.",
+  icons: {
+    icon: [
+      {
+        url: "/favicon.png",
+        type: "image/png",
+      },
+      {
+        url: "/icons/icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
+    ],
+    shortcut: ["/favicon.png"],
+    apple: [
+      {
+        url: "/apple-touch-icon.png",
+        type: "image/png",
+      },
+    ],
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
