@@ -21,9 +21,22 @@ function formatDateTime(value: string): string {
   }).format(parsed);
 }
 
+function getStatusTone(status: string): "status-live" | "status-finished" | "status-scheduled" {
+  const normalized = status.trim().toLowerCase();
+
+  if (normalized.includes("live") || normalized.includes("progress")) {
+    return "status-live";
+  }
+
+  if (normalized.includes("finished") || normalized.includes("full") || normalized.includes("ended")) {
+    return "status-finished";
+  }
+
+  return "status-scheduled";
+}
+
 export function MatchEndpointCard({ record, isSelected = false, onOpen }: MatchEndpointCardProps) {
   const isInteractive = typeof onOpen === "function";
-  const endpointPreview = JSON.stringify(record.endpoint, null, 2);
 
   const handleOpen = (): void => {
     if (!onOpen) {
@@ -51,24 +64,24 @@ export function MatchEndpointCard({ record, isSelected = false, onOpen }: MatchE
       onKeyDown={handleKeyDown}
       role={isInteractive ? "button" : undefined}
       tabIndex={isInteractive ? 0 : undefined}
-      aria-label={isInteractive ? `Open fullscreen details for ${record.source.matchCode}` : undefined}
+      aria-label={isInteractive ? `Open details for ${record.source.matchCode}` : undefined}
     >
       <div className="match-list-item-top">
         <div>
           <h3>
             {record.endpoint.teams.home} vs {record.endpoint.teams.away}
           </h3>
-          <p className="meta">
-            {formatDateTime(record.endpoint.kickoff)} | {record.endpoint.competition.round}
-          </p>
-          <p className="footnote">{record.source.matchCode}</p>
         </div>
 
-        <span className="status-pill">{record.endpoint.status}</span>
+        <span className={`status-pill ${getStatusTone(record.endpoint.status)}`}>{record.endpoint.status}</span>
       </div>
 
-      <p className="endpoint-label">Generated Endpoint</p>
-      <pre className="endpoint-preview">{endpointPreview}</pre>
+      <div className="match-list-item-footer">
+        <p className="meta">
+          {formatDateTime(record.endpoint.kickoff)} | {record.endpoint.competition.round}
+        </p>
+        <p className="footnote">Match ID: {record.source.matchCode}</p>
+      </div>
     </article>
   );
 }

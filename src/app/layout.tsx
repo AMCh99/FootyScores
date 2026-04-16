@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
+import { IBM_Plex_Mono, Inter, Space_Grotesk } from "next/font/google";
 import type { ReactNode } from "react";
 
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-primary",
+  variable: "--font-display",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
 });
 
 const ibmPlexMono = IBM_Plex_Mono({
@@ -16,7 +21,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FootyScores Olympic Endpoint Generator",
+  title: "footy-scores",
   description:
     "Generate deterministic football endpoint payloads for Paris 2024 Olympic matches.",
 };
@@ -28,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${spaceGrotesk.variable} ${ibmPlexMono.variable}`}>{children}</body>
+      <body className={`${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable}`}>{children}</body>
     </html>
   );
 }
