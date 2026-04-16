@@ -335,97 +335,94 @@ export default function HomePage() {
               </aside>
 
               <section className="match-detail-panel" aria-live="polite">
-                <header className="detail-header">
-                  <div className="detail-header-main">
-                    <p className={`detail-status ${getStatusTone(selectedRecord.endpoint.status)}`}>
-                      {selectedRecord.endpoint.status}
-                    </p>
-                    <h2 className="detail-matchup">
-                      <span className="team-inline">
-                        <TeamFlag
-                          teamCode={selectedRecord.source.homeTeamCode}
-                          teamName={selectedRecord.endpoint.teams.home}
-                          size="lg"
-                        />
-                        <span>{selectedRecord.endpoint.teams.home}</span>
-                      </span>
-                      <span className="team-vs">vs</span>
-                      <span className="team-inline">
-                        <TeamFlag
-                          teamCode={selectedRecord.source.awayTeamCode}
-                          teamName={selectedRecord.endpoint.teams.away}
-                          size="lg"
-                        />
-                        <span>{selectedRecord.endpoint.teams.away}</span>
-                      </span>
-                    </h2>
-                    <p className="detail-header-meta">
-                      {formatDateTime(selectedRecord.endpoint.kickoff)} | {selectedRecord.endpoint.venue.name},{" "}
-                      {selectedRecord.endpoint.venue.city}
-                    </p>
-                  </div>
+                <section className="detail-summary-layout">
+                  <header className="detail-header">
+                    <div className="detail-header-main">
+                      <p className={`detail-status ${getStatusTone(selectedRecord.endpoint.status)}`}>
+                        {selectedRecord.endpoint.status}
+                      </p>
+                      <h2 className="detail-matchup">
+                        <span className="team-inline">
+                          <TeamFlag
+                            teamCode={selectedRecord.source.homeTeamCode}
+                            teamName={selectedRecord.endpoint.teams.home}
+                            size="lg"
+                          />
+                          <span>{selectedRecord.endpoint.teams.home}</span>
+                        </span>
+                        <span className="team-vs">vs</span>
+                        <span className="team-inline">
+                          <TeamFlag
+                            teamCode={selectedRecord.source.awayTeamCode}
+                            teamName={selectedRecord.endpoint.teams.away}
+                            size="lg"
+                          />
+                          <span>{selectedRecord.endpoint.teams.away}</span>
+                        </span>
+                      </h2>
+                      <p className="detail-header-meta">
+                        {formatDateTime(selectedRecord.endpoint.kickoff)} | {selectedRecord.endpoint.venue.name},{" "}
+                        {selectedRecord.endpoint.venue.city}
+                      </p>
 
-                  <div className="detail-score-card" aria-label="Match score">
-                    <p className="detail-card-label">Scoreline</p>
-                    <div className="detail-score">
-                      <span>{selectedRecord.endpoint.score.home}</span>
-                      <small>:</small>
-                      <span>{selectedRecord.endpoint.score.away}</span>
+                      <dl className="detail-header-context">
+                        <div>
+                          <dt>Match Code</dt>
+                          <dd>{selectedRecord.source.matchCode}</dd>
+                        </div>
+                        <div>
+                          <dt>Event Code</dt>
+                          <dd>{selectedRecord.source.eventCode}</dd>
+                        </div>
+                        <div>
+                          <dt>Round</dt>
+                          <dd>{selectedRecord.endpoint.competition.round}</dd>
+                        </div>
+                      </dl>
                     </div>
-                    <p className="detail-score-caption">{selectedRecord.endpoint.competition.round}</p>
-                  </div>
-                </header>
 
-                <section className="detail-overview-grid" aria-label="Selected match overview">
-                  <article className="detail-overview-card">
-                    <p className="detail-card-label">Match Metadata</p>
-                    <dl className="detail-meta-grid">
-                      <div>
-                        <dt>Match Code</dt>
-                        <dd>{selectedRecord.source.matchCode}</dd>
+                    <div className="detail-header-side">
+                      <div className="detail-score-card" aria-label="Match score">
+                        <p className="detail-card-label">Scoreline</p>
+                        <div className="detail-score">
+                          <span>{selectedRecord.endpoint.score.home}</span>
+                          <small>:</small>
+                          <span>{selectedRecord.endpoint.score.away}</span>
+                        </div>
+                        <p className="detail-score-caption">{selectedRecord.endpoint.competition.round}</p>
                       </div>
-                      <div>
-                        <dt>Event Code</dt>
-                        <dd>{selectedRecord.source.eventCode}</dd>
-                      </div>
-                      <div>
-                        <dt>Round</dt>
-                        <dd>{selectedRecord.endpoint.competition.round}</dd>
-                      </div>
-                      <div>
-                        <dt>Source Mode</dt>
-                        <dd>{selectedRecord.source.sourceMode}</dd>
-                      </div>
-                    </dl>
-                  </article>
-
-                  <article className="detail-overview-card">
-                    <p className="detail-card-label">Inspection Actions</p>
-                    <div className="detail-actions">
-                      <button
-                        className="control-button secondary"
-                        onClick={() => handleOpenSingleMatchApi(selectedRecord.source.matchCode)}
-                        type="button"
-                      >
-                        Open Single API
-                      </button>
-                      <button
-                        className="control-button secondary"
-                        onClick={() => handleExportSingleMatch(selectedRecord)}
-                        type="button"
-                      >
-                        Export This Match
-                      </button>
-                      <button
-                        className="control-button secondary"
-                        onClick={handleToggleSourceContext}
-                        disabled={isSourceContextLoading}
-                        type="button"
-                      >
-                        {showSourceContext ? "Hide Full Source Context" : "Show Full Source Context"}
-                      </button>
                     </div>
-                  </article>
+                  </header>
+
+                  <aside className="detail-summary-actions" aria-label="Inspection tools">
+                    <article className="detail-actions-card">
+                      <p className="detail-card-label">Inspection Actions</p>
+                      <div className="detail-actions">
+                        <button
+                          className="control-button secondary"
+                          onClick={() => handleOpenSingleMatchApi(selectedRecord.source.matchCode)}
+                          type="button"
+                        >
+                          Open Single API
+                        </button>
+                        <button
+                          className="control-button secondary"
+                          onClick={() => handleExportSingleMatch(selectedRecord)}
+                          type="button"
+                        >
+                          Export This Match
+                        </button>
+                        <button
+                          className="control-button secondary"
+                          onClick={handleToggleSourceContext}
+                          disabled={isSourceContextLoading}
+                          type="button"
+                        >
+                          {showSourceContext ? "Hide Full Source Context" : "Show Full Source Context"}
+                        </button>
+                      </div>
+                    </article>
+                  </aside>
                 </section>
 
                 <section className={`endpoint-inspection${showSourceContext ? " with-context" : ""}`}>
