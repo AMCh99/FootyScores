@@ -185,6 +185,25 @@ npm run test
 npm run build
 ```
 
+## Deploy (Vercel)
+
+1. Push the repository to GitHub.
+2. In Vercel, import the GitHub repository as a new project.
+3. Keep default Next.js build settings.
+4. Deploy.
+
+Notes:
+
+- Node runtime is pinned via `package.json` engines (`22.x`), which Vercel respects.
+- No custom environment variables are required for the core generator flow.
+
+## Submission Requirements Coverage
+
+- Install, run, and deploy instructions: see `Getting Started` and `Deploy (Vercel)`.
+- How data is retrieved and parsed: see `Data Retrieval Strategy` and `Architecture`.
+- How endpoint ordering is determined: see `Deterministic Ordering`.
+- Assumptions for missing or inconsistent schedule data: see `Missing Data Assumptions`.
+
 ## Assignment References
 
 - Requirements: `task/readme.md`
