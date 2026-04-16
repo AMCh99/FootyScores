@@ -51,7 +51,9 @@ export interface MatchSourceSummary {
   matchCode: string;
   eventCode: string;
   kickoff: string;
+  homeTeamCode: string;
   homeTeam: string;
+  awayTeamCode: string;
   awayTeam: string;
   status: string;
   round: string;

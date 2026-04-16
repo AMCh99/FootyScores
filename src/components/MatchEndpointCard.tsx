@@ -1,5 +1,6 @@
 import type { KeyboardEvent } from "react";
 
+import { TeamFlag } from "@/components/TeamFlag";
 import type { GeneratedMatchRecord } from "@/lib/types/domain";
 
 interface MatchEndpointCardProps {
@@ -68,8 +69,22 @@ export function MatchEndpointCard({ record, isSelected = false, onOpen }: MatchE
     >
       <div className="match-list-item-top">
         <div>
-          <h3>
-            {record.endpoint.teams.home} vs {record.endpoint.teams.away}
+          <h3 className="matchup-line">
+            <span className="team-inline">
+              <TeamFlag
+                teamCode={record.source.homeTeamCode}
+                teamName={record.endpoint.teams.home}
+              />
+              <span>{record.endpoint.teams.home}</span>
+            </span>
+            <span className="team-vs">vs</span>
+            <span className="team-inline">
+              <TeamFlag
+                teamCode={record.source.awayTeamCode}
+                teamName={record.endpoint.teams.away}
+              />
+              <span>{record.endpoint.teams.away}</span>
+            </span>
           </h3>
         </div>
 

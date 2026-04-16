@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { MatchEndpointCard } from "@/components/MatchEndpointCard";
 import { StatePanel } from "@/components/StatePanel";
+import { TeamFlag } from "@/components/TeamFlag";
 import { errorMessages } from "@/lib/errors/messages";
 import { exportEndpointsToJson } from "@/lib/export/exportJson";
 import type { GeneratedMatchRecord, GenerationResult, MatchSourceContext } from "@/lib/types/domain";
@@ -339,8 +340,24 @@ export default function HomePage() {
                     <p className={`detail-status ${getStatusTone(selectedRecord.endpoint.status)}`}>
                       {selectedRecord.endpoint.status}
                     </p>
-                    <h2>
-                      {selectedRecord.endpoint.teams.home} vs {selectedRecord.endpoint.teams.away}
+                    <h2 className="detail-matchup">
+                      <span className="team-inline">
+                        <TeamFlag
+                          teamCode={selectedRecord.source.homeTeamCode}
+                          teamName={selectedRecord.endpoint.teams.home}
+                          size="lg"
+                        />
+                        <span>{selectedRecord.endpoint.teams.home}</span>
+                      </span>
+                      <span className="team-vs">vs</span>
+                      <span className="team-inline">
+                        <TeamFlag
+                          teamCode={selectedRecord.source.awayTeamCode}
+                          teamName={selectedRecord.endpoint.teams.away}
+                          size="lg"
+                        />
+                        <span>{selectedRecord.endpoint.teams.away}</span>
+                      </span>
                     </h2>
                     <p className="detail-header-meta">
                       {formatDateTime(selectedRecord.endpoint.kickoff)} | {selectedRecord.endpoint.venue.name},{" "}
