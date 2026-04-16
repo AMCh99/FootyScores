@@ -8,6 +8,7 @@ FootyScores is a Next.js + TypeScript tool for QA engineers to generate determin
 - Filters football-only matches (`FBL*`) and excludes other disciplines.
 - Transforms each match into the exact endpoint schema from `task/example.json`.
 - Provides a UI to trigger generation and inspect match source + generated endpoint JSON.
+- Automatically loads and generates endpoint data on initial page load, with manual reload support.
 - Exports generated endpoints as machine-readable JSON.
 - Supports single-match endpoint retrieval and single-match JSON export from fullscreen match view.
 - Supports automated JSON comparison with a tested API (all matches or a single selected match).
