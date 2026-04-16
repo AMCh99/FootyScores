@@ -679,6 +679,40 @@ a {
   font-weight: 500;
 }
 
+.generated-endpoint-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.endpoint-view-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.12rem;
+  border-radius: 999px;
+  background: rgba(14, 19, 29, 0.65);
+  border: 1px solid rgba(110, 124, 153, 0.35);
+}
+
+.endpoint-view-button {
+  border: 0;
+  background: transparent;
+  color: var(--on-surface-variant);
+  border-radius: 999px;
+  padding: 0.28rem 0.62rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+
+.endpoint-view-button.active {
+  background: rgba(59, 90, 145, 0.42);
+  color: var(--on-surface-strong);
+}
+
 .generated-endpoint-panel pre {
   margin: 0.58rem 0 0;
   border-radius: var(--radius-sm);
@@ -691,6 +725,166 @@ a {
   min-height: 460px;
   max-height: 76vh;
   font-family: var(--mono), monospace;
+}
+
+.endpoint-simplified {
+  margin-top: 0.58rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.endpoint-simplified-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.52rem;
+}
+
+.endpoint-simplified-card {
+  border-radius: var(--radius-sm);
+  background: var(--surface-container-lowest);
+  border: 1px solid rgba(98, 113, 142, 0.24);
+  padding: 0.62rem;
+}
+
+.endpoint-simplified-card h4 {
+  margin: 0;
+  font-size: 0.74rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  font-family: var(--display), sans-serif;
+  font-weight: 500;
+}
+
+.endpoint-simplified-card p {
+  margin: 0.26rem 0 0;
+}
+
+.endpoint-value-strong {
+  color: var(--on-surface-strong);
+  font-weight: 600;
+}
+
+.endpoint-muted {
+  color: var(--on-surface-variant);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.endpoint-simplified-score-card {
+  display: grid;
+  align-content: center;
+}
+
+.endpoint-scoreline {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.32rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--on-surface-strong);
+}
+
+.endpoint-scoreline span {
+  color: var(--secondary);
+  font-size: 0.92rem;
+}
+
+.endpoint-scorers-list {
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.42rem;
+}
+
+.endpoint-scorers-list li {
+  border-radius: var(--radius-xs);
+  background: rgba(11, 17, 27, 0.5);
+  border: 1px solid rgba(87, 101, 125, 0.2);
+  padding: 0.45rem 0.52rem;
+  display: grid;
+  gap: 0.1rem;
+}
+
+.endpoint-scorer-minute {
+  font-size: 0.74rem;
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.endpoint-scorer-main {
+  font-size: 0.82rem;
+  color: var(--on-surface);
+}
+
+.endpoint-scorer-meta {
+  color: var(--on-surface-variant);
+  font-size: 0.74rem;
+}
+
+.endpoint-lineups-grid {
+  margin-top: 0.5rem;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.endpoint-lineup-card {
+  border-radius: var(--radius-xs);
+  background: rgba(10, 16, 24, 0.54);
+  border: 1px solid rgba(87, 101, 125, 0.2);
+  padding: 0.5rem;
+}
+
+.endpoint-lineup-card h5 {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--on-surface-strong);
+  font-weight: 600;
+}
+
+.endpoint-lineup-meta {
+  margin: 0.3rem 0 0;
+  color: var(--on-surface-variant);
+  font-size: 0.74rem;
+  line-height: 1.4;
+}
+
+.endpoint-lineup-columns {
+  margin-top: 0.42rem;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.endpoint-lineup-columns section {
+  display: grid;
+  gap: 0.24rem;
+}
+
+.endpoint-lineup-columns h6 {
+  margin: 0;
+  color: var(--secondary);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.endpoint-player-list {
+  margin: 0;
+  padding-left: 1.05rem;
+  display: grid;
+  gap: 0.17rem;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: var(--on-surface);
+}
+
+.endpoint-player-list span {
+  color: var(--on-surface-variant);
+  font-weight: 600;
 }
 
 .source-context-panel {
@@ -850,6 +1044,11 @@ a {
   }
 
   .endpoint-inspection.with-context {
+    grid-template-columns: 1fr;
+  }
+
+  .endpoint-simplified-grid,
+  .endpoint-lineups-grid {
     grid-template-columns: 1fr;
   }
 
