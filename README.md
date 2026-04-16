@@ -10,6 +10,7 @@ FootyScores is a Next.js + TypeScript tool for QA engineers to generate determin
 - Provides a UI to trigger generation and inspect match source + generated endpoint JSON.
 - Exports generated endpoints as machine-readable JSON.
 - Supports single-match endpoint retrieval and single-match JSON export from fullscreen match view.
+- Supports automated JSON comparison with a tested API (all matches or a single selected match).
 - Uses the official Olympics source as the runtime data input.
 
 ## Tech Stack
@@ -77,6 +78,55 @@ API usage:
 
 - All football matches: `/api/generate`
 - Single football match by code: `/api/generate?matchCode=<matchCode>`
+- Compare generated JSON with tested API: `POST /api/compare` body `{ "testedApiUrl": "<url>", "matchCode": "<optional matchCode>" }`
+- Compare using query params: `/api/compare?testedApiUrl=<urlEncodedUrl>&matchCode=<optional matchCode>`
+
+## Automated JSON Comparison
+
+The comparison feature validates generated expected endpoints against a tested API response.
+
+What the comparison does:
+
+1. Generates the expected endpoint set from official Olympics football data.
+2. Fetches JSON from the tested API URL (`testedApiUrl`).
+3. Normalizes the tested payload into a supported structure.
+4. Compares generated vs tested endpoints using a deterministic strategy.
+5. Returns a pass/fail result with detailed mismatch diagnostics.
+
+Supported tested payload shapes:
+
+- `{ "matches": [{ "source": { "matchCode": "..." }, "endpoint": { ... } }] }`
+- `[{ ...matchEndpoint }, { ...matchEndpoint }]`
+- `{ ...singleMatchEndpoint }`
+
+Comparison strategies:
+
+- `by-match-code`: used when tested payload includes match codes.
+- `by-order`: fallback when match codes are not available.
+
+Difference behavior:
+
+- Deep comparison is recursive for objects and arrays.
+- Differences include JSON path, expected value, and actual value.
+- Each compared match reports total difference count.
+- Difference samples are capped per match and flagged as truncated when needed.
+
+Pass criteria:
+
+- `passed=true` only when there are no mismatched compared matches,
+- no generated matches missing in tested payload,
+- and no extra tested matches (except single-match mode, where unrelated extras are ignored).
+
+Single-match comparison:
+
+- Provide `matchCode` to compare exactly one generated football match.
+- If match code does not exist in generated results, API returns `404`.
+
+Comparison result includes:
+
+- `passed`
+- `diagnostics`: tested API URL, strategy, compared/equal/mismatched counts, missing/extra lists, generation timestamp
+- `matches[]`: per-match result with `isEqual`, `differenceCount`, `differencesTruncated`, and `differences[]`
 
 ## Architecture
 
@@ -87,9 +137,10 @@ The implementation is split into clear layers:
 - Football filtering and dedupe: `src/lib/filters/footballFilter.ts`
 - Endpoint transformation: `src/lib/transformers/toEndpoint.ts`
 - Deterministic sorting: `src/lib/sorters/orderEndpoints.ts`
+- JSON comparison engine: `src/lib/comparison/jsonComparison.ts`
 - Export logic: `src/lib/export/exportJson.ts`
 - End-to-end orchestration: `src/lib/pipeline/generateEndpoints.ts`
-- UI + API route: `src/app/page.tsx` and `src/app/api/generate/route.ts`
+- UI + API routes: `src/app/page.tsx`, `src/app/api/generate/route.ts`, and `src/app/api/compare/route.ts`
 
 ## Deterministic Ordering
 
@@ -115,6 +166,7 @@ Current tests cover:
 - Canonical-to-endpoint transformation
 - Parser behavior for schedule and match details
 - Integration checks with mocked official payload retrieval: no duplicates, football-only coverage, deterministic ordering
+- JSON comparison behavior: by-match-code, by-order, and single-match extra-entry handling
 - Endpoint contract shape against `task/example.json`
 
 Tests are in `src/lib/__tests__`.

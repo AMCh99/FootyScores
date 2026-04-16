@@ -7,6 +7,7 @@ import { MatchFullscreenView } from "@/components/MatchFullscreenView";
 import { StatePanel } from "@/components/StatePanel";
 import { errorMessages } from "@/lib/errors/messages";
 import { exportEndpointsToJson } from "@/lib/export/exportJson";
+import type { JsonComparisonResult } from "@/lib/types/comparison";
 import type { GeneratedMatchRecord, GenerationResult } from "@/lib/types/domain";
 import type { MatchEndpoint } from "@/lib/types/endpoint";
 
@@ -53,9 +54,13 @@ function downloadSingleEndpoint(fileName: string, endpoint: MatchEndpoint): void
 
 export default function HomePage() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isComparing, setIsComparing] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
+  const [comparisonError, setComparisonError] = useState<string>("");
   const [result, setResult] = useState<GenerationResult | null>(null);
+  const [comparisonResult, setComparisonResult] = useState<JsonComparisonResult | null>(null);
   const [selectedRecord, setSelectedRecord] = useState<GeneratedMatchRecord | null>(null);
+  const [testedApiUrl, setTestedApiUrl] = useState<string>("/api/generate");
 
   useEffect(() => {
     if (!selectedRecord) {
@@ -105,6 +110,8 @@ export default function HomePage() {
       const payload = (await response.json()) as GenerationResult;
 
       setResult(payload);
+      setComparisonResult(null);
+      setComparisonError("");
     } catch {
       setResult(null);
       setError(errorMessages.generationFailedDetail);
@@ -125,13 +132,70 @@ export default function HomePage() {
     window.open("/api/generate", "_blank", "noopener,noreferrer");
   };
 
+  const runComparison = async (matchCode: string = ""): Promise<void> => {
+    const trimmedApiUrl = testedApiUrl.trim();
+
+    if (trimmedApiUrl.length === 0) {
+      setComparisonResult(null);
+      setComparisonError(errorMessages.testedApiUrlRequired);
+      return;
+    }
+
+    setIsComparing(true);
+    setComparisonError("");
+
+    try {
+      const response = await fetch("/api/compare", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          testedApiUrl: trimmedApiUrl,
+          matchCode: matchCode.trim(),
+        }),
+      });
+
+      if (!response.ok) {
+        const payload = (await response.json().catch(() => null)) as ApiErrorResponse | null;
+        setComparisonResult(null);
+        setComparisonError(getErrorMessage(payload));
+        return;
+      }
+
+      const payload = (await response.json()) as JsonComparisonResult;
+      setComparisonResult(payload);
+    } catch {
+      setComparisonResult(null);
+      setComparisonError(errorMessages.comparisonFailedDetail);
+    } finally {
+      setIsComparing(false);
+    }
+  };
+
+  const handleCompare = (): void => {
+    void runComparison();
+  };
+
   const handleOpenSingleMatchApi = (matchCode: string): void => {
     const encodedMatchCode = encodeURIComponent(matchCode);
     window.open(`/api/generate?matchCode=${encodedMatchCode}`, "_blank", "noopener,noreferrer");
   };
 
+  const handleCompareSingleMatch = (matchCode: string): void => {
+    void runComparison(matchCode);
+  };
+
   const handleExportSingleMatch = (record: GeneratedMatchRecord): void => {
     downloadSingleEndpoint(`olympic-football-endpoint-${record.source.matchCode}.json`, record.endpoint);
+  };
+
+  const handleExportComparison = (): void => {
+    if (!comparisonResult) {
+      return;
+    }
+
+    downloadText("comparison-report.json", JSON.stringify(comparisonResult, null, 2));
   };
 
   return (
@@ -143,6 +207,15 @@ export default function HomePage() {
           Data generation uses the official Olympics source and excludes non-football events.
         </p>
         <div className="controls">
+          <input
+            className="control-input"
+            type="text"
+            value={testedApiUrl}
+            onChange={(event) => setTestedApiUrl(event.target.value)}
+            placeholder="https://tested-api.example.com/api/generate"
+            aria-label="Tested API URL for JSON comparison"
+            disabled={isLoading || isComparing}
+          />
           <button className="control-button" onClick={handleGenerate} disabled={isLoading} type="button">
             {isLoading ? "Generating..." : "Load and Generate"}
           </button>
@@ -162,6 +235,22 @@ export default function HomePage() {
           >
             Open API JSON
           </button>
+          <button
+            className="control-button secondary"
+            onClick={handleCompare}
+            disabled={isLoading || isComparing || testedApiUrl.trim().length === 0}
+            type="button"
+          >
+            {isComparing ? "Comparing..." : "Compare with Tested API"}
+          </button>
+          <button
+            className="control-button secondary"
+            onClick={handleExportComparison}
+            disabled={!comparisonResult}
+            type="button"
+          >
+            Export Comparison JSON
+          </button>
         </div>
       </section>
 
@@ -174,6 +263,50 @@ export default function HomePage() {
 
       {!isLoading && error.length > 0 && (
         <StatePanel title={errorMessages.generationFailedTitle} message={error} isError />
+      )}
+
+      {isComparing && (
+        <StatePanel
+          title="Comparing JSON Responses"
+          message="Running automated JSON comparison between generated endpoints and the tested API."
+        />
+      )}
+
+      {!isComparing && comparisonError.length > 0 && (
+        <StatePanel title={errorMessages.comparisonFailedTitle} message={comparisonError} isError />
+      )}
+
+      {!isComparing && !comparisonError && comparisonResult && (
+        <section className={`comparison-panel${comparisonResult.passed ? "" : " error"}`}>
+          <h2>{comparisonResult.passed ? "Comparison Passed" : "Comparison Found Differences"}</h2>
+          <p className="comparison-meta">
+            testedApi={comparisonResult.diagnostics.testedApiUrl} | strategy=
+            {comparisonResult.diagnostics.strategy} | compared={comparisonResult.diagnostics.comparedMatches} |
+            equal={comparisonResult.diagnostics.equalMatches} | mismatched=
+            {comparisonResult.diagnostics.mismatchedMatches}
+          </p>
+          <p className="comparison-meta">
+            missingInTested={comparisonResult.diagnostics.missingInTested.length} | extraInTested=
+            {comparisonResult.diagnostics.extraInTested.length}
+          </p>
+          {!comparisonResult.passed && comparisonResult.matches.some((item) => !item.isEqual) && (
+            <div className="comparison-grid">
+              {comparisonResult.matches
+                .filter((item) => !item.isEqual)
+                .slice(0, 6)
+                .map((item) => (
+                  <article className="comparison-card" key={item.matchCode}>
+                    <h3>{item.matchCode}</h3>
+                    <p>
+                      differences={item.differenceCount}
+                      {item.differencesTruncated ? " (truncated)" : ""}
+                    </p>
+                    <pre>{JSON.stringify(item.differences, null, 2)}</pre>
+                  </article>
+                ))}
+            </div>
+          )}
+        </section>
       )}
 
       {!isLoading && !error && result && result.matches.length === 0 && (
@@ -212,6 +345,8 @@ export default function HomePage() {
         <MatchFullscreenView
           record={selectedRecord}
           onOpenSingleApi={handleOpenSingleMatchApi}
+          onCompareSingle={handleCompareSingleMatch}
+          canCompareSingle={testedApiUrl.trim().length > 0 && !isComparing}
           onExportSingle={handleExportSingleMatch}
           onClose={() => setSelectedRecord(null)}
         />

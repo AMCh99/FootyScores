@@ -5,6 +5,8 @@ import type { GeneratedMatchRecord } from "@/lib/types/domain";
 interface MatchFullscreenViewProps {
   record: GeneratedMatchRecord;
   onOpenSingleApi: (matchCode: string) => void;
+  onCompareSingle: (matchCode: string) => void;
+  canCompareSingle: boolean;
   onExportSingle: (record: GeneratedMatchRecord) => void;
   onClose: () => void;
 }
@@ -12,6 +14,8 @@ interface MatchFullscreenViewProps {
 export function MatchFullscreenView({
   record,
   onOpenSingleApi,
+  onCompareSingle,
+  canCompareSingle,
   onExportSingle,
   onClose,
 }: MatchFullscreenViewProps) {
@@ -47,6 +51,14 @@ export function MatchFullscreenView({
             >
               Open Single Match API
             </button>
+              <button
+                className="control-button secondary"
+                onClick={() => onCompareSingle(record.source.matchCode)}
+                disabled={!canCompareSingle}
+                type="button"
+              >
+                Compare This Match
+              </button>
             <button
               className="control-button secondary"
               onClick={() => onExportSingle(record)}
