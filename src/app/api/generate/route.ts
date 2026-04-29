@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { errorMessages } from "@/lib/errors/messages";
 import { generateMatchEndpoints } from "@/lib/pipeline/generateEndpoints";
-import type { GenerationResult } from "@/lib/types/domain";
 
 interface GenerateRequestBody {
   matchCode?: string;
@@ -31,32 +30,43 @@ function normalizeBoolean(value: unknown): boolean {
   return false;
 }
 
-function selectSingleMatchResult(result: GenerationResult, matchCode: string): GenerationResult | null {
-  if (matchCode.length === 0) {
-    return result;
-  }
-
-  const record = result.matches.find((item) => item.source.matchCode === matchCode);
-
-  if (!record) {
-    return null;
-  }
-
-  return {
-    diagnostics: {
-      ...result.diagnostics,
-      totalMatches: 1,
-    },
-    matches: [record],
-  };
-}
-
 async function generateResponse(matchCode: string, includeSourceContext: boolean): Promise<NextResponse> {
   try {
     const result = await generateMatchEndpoints({
       includeSourceContext,
     });
-    const selectedResult = selectSingleMatchResult(result, matchCode);
+
+    if (matchCode.length === 0) {
+      return NextResponse.json(result);
+    }
+
+    const selectedRecord = result.matches.find((item) => item.source.matchCode === matchCode);
+
+    if (!selectedRecord) {
+      return NextResponse.json(
+        {
+          error: {
+            title: errorMessages.matchNotFoundTitle,
+            detail: `${errorMessages.matchNotFoundDetail} (${matchCode})`,
+          },
+        },
+        {
+          status: 404,
+        },
+      );
+    }
+
+    if (includeSourceContext) {
+      return NextResponse.json({
+        diagnostics: {
+          ...result.diagnostics,
+          totalMatches: 1,
+        },
+        matches: [selectedRecord],
+      });
+    }
+
+    const selectedResult = selectedRecord.endpoint;
 
     if (!selectedResult) {
       return NextResponse.json(

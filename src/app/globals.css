@@ -281,7 +281,14 @@ a {
   margin-top: 0.56rem;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
+}
+
+.match-list-control-group {
+  display: flex;
+  align-items: center;
+  gap: 0.42rem;
 }
 
 .match-list-controls-label {
