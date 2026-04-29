@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "22.x"
+    "node": "24.x"
   },
   "scripts": {
     "dev": "NODE_OPTIONS=\"--localstorage-file=.next/localstorage\" next dev",
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
-    "@types/node": "22.13.10",
+    "@types/node": "^24.0.0",
     "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
     "eslint": "9.22.0",

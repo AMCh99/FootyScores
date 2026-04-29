@@ -27,7 +27,7 @@ FootyScores is a Next.js + TypeScript tool for QA engineers to generate determin
 
 ## Getting Started
 
-1. Use Node.js 22.x (LTS).
+1. Use Node.js 24.x (LTS).
 2. If you use nvm, run:
 
 ```bash
@@ -58,7 +58,7 @@ npm run dev
 
 ## Runtime Notes
 
-- This repository pins Node to `22.x` in `package.json` and `.nvmrc`.
+- This repository pins Node to `24.x` in `package.json` and `.nvmrc`.
 - Vercel reads the Node version from `package.json` `engines.node`.
 - npm scripts include a `NODE_OPTIONS` localStorage safeguard so the app can still run locally on environments using newer Node versions.
 
@@ -194,7 +194,7 @@ npm run build
 
 Notes:
 
-- Node runtime is pinned via `package.json` engines (`22.x`), which Vercel respects.
+- Node runtime is pinned via `package.json` engines (`24.x`), which Vercel respects.
 - No custom environment variables are required for the core generator flow.
 
 ## Submission Requirements Coverage
